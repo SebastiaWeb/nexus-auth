@@ -35,8 +35,8 @@ new NexusAuth(config: NexusAuthConfig)
 
 **Example:**
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 
 const auth = new NexusAuth({
   adapter: new TypeORMAdapter({ dataSource }),
@@ -817,7 +817,7 @@ import {
   getCurrentUser,
   getCurrentSession,
   signOut
-} from '@nexus-auth/express-helpers';
+} from '@nexusauth/express-helpers';
 ```
 
 - [Express Helpers API](./express-helpers-api.md)
@@ -831,7 +831,7 @@ import {
   requireAuth,
   createAuthMiddleware,
   getSessionFromMiddleware
-} from '@nexus-auth/nextjs-helpers';
+} from '@nexusauth/nextjs-helpers';
 ```
 
 - [Next.js Helpers API](./nextjs-helpers-api.md)
@@ -847,7 +847,7 @@ import {
   CurrentUser,
   CurrentSession,
   CurrentUserId
-} from '@nexus-auth/nestjs-helpers';
+} from '@nexusauth/nestjs-helpers';
 ```
 
 - [NestJS Helpers API](./nestjs-helpers-api.md)

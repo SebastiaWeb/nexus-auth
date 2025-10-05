@@ -6,8 +6,8 @@
 
 Framework agnostic • Database flexible • OAuth ready • TypeScript first
 
-[![npm version](https://img.shields.io/npm/v/@nexus-auth/core.svg?style=flat-square)](https://www.npmjs.com/package/@nexus-auth/core)
-[![npm downloads](https://img.shields.io/npm/dm/@nexus-auth/core.svg?style=flat-square)](https://www.npmjs.com/package/@nexus-auth/core)
+[![npm version](https://img.shields.io/npm/v/@nexusauth/core.svg?style=flat-square)](https://www.npmjs.com/package/@nexusauth/core)
+[![npm downloads](https://img.shields.io/npm/dm/@nexusauth/core.svg?style=flat-square)](https://www.npmjs.com/package/@nexusauth/core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](./CONTRIBUTING.md)
@@ -24,8 +24,8 @@ Stop fighting with authentication libraries that force you into their way of doi
 
 ```typescript
 // That's it. Seriously.
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 
 const auth = new NexusAuth({
   adapter: new PrismaAdapter(prisma),
@@ -97,24 +97,24 @@ Events, callbacks, custom adapters. Bend it to your will.
 
 ```bash
 # Core package (required)
-pnpm add @nexus-auth/core
+pnpm add @nexusauth/core
 
 # Choose your database adapter
-pnpm add @nexus-auth/prisma-adapter
+pnpm add @nexusauth/prisma-adapter
 # or
-pnpm add @nexus-auth/typeorm-adapter
+pnpm add @nexusauth/typeorm-adapter
 # or
-pnpm add @nexus-auth/mongoose-adapter
+pnpm add @nexusauth/mongoose-adapter
 
 # Optional: OAuth providers
-pnpm add @nexus-auth/providers
+pnpm add @nexusauth/providers
 
 # Optional: Framework helpers
-pnpm add @nexus-auth/nextjs-helpers
+pnpm add @nexusauth/nextjs-helpers
 # or
-pnpm add @nexus-auth/nestjs-helpers
+pnpm add @nexusauth/nestjs-helpers
 # or
-pnpm add @nexus-auth/express-helpers
+pnpm add @nexusauth/express-helpers
 ```
 
 ### Basic Usage
@@ -124,9 +124,9 @@ pnpm add @nexus-auth/express-helpers
 
 ```typescript
 // lib/auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { prisma } from './prisma';
 
 export const auth = new NexusAuth({
@@ -167,8 +167,8 @@ export async function POST(req: Request) {
 
 ```typescript
 // auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 import { AppDataSource } from './data-source';
 
 export const auth = new NexusAuth({
@@ -209,8 +209,8 @@ app.get('/api/me', async (req, res) => {
 ```typescript
 // auth.module.ts
 import { Module } from '@nestjs/common';
-import { NexusAuth } from '@nexus-auth/core';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
 
@@ -233,7 +233,7 @@ export class AuthModule {}
 
 // auth.controller.ts
 import { Controller, Post, Body, Inject } from '@nestjs/common';
-import { NexusAuth } from '@nexus-auth/core';
+import { NexusAuth } from '@nexusauth/core';
 
 @Controller('auth')
 export class AuthController {
@@ -257,18 +257,18 @@ export class AuthController {
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [`@nexus-auth/core`](./packages/core) | ![npm](https://img.shields.io/npm/v/@nexus-auth/core?style=flat-square) | Core authentication library |
+| [`@nexusauth/core`](./packages/core) | ![npm](https://img.shields.io/npm/v/@nexusauth/core?style=flat-square) | Core authentication library |
 | **Database Adapters** |
-| [`@nexus-auth/typeorm-adapter`](./packages/typeorm-adapter) | ![npm](https://img.shields.io/npm/v/@nexus-auth/typeorm-adapter?style=flat-square) | TypeORM adapter |
-| [`@nexus-auth/prisma-adapter`](./packages/prisma-adapter) | ![npm](https://img.shields.io/npm/v/@nexus-auth/prisma-adapter?style=flat-square) | Prisma adapter |
-| [`@nexus-auth/mongoose-adapter`](./packages/mongoose-adapter) | ![npm](https://img.shields.io/npm/v/@nexus-auth/mongoose-adapter?style=flat-square) | Mongoose adapter |
-| [`@nexus-auth/sql-adapter`](./packages/sql-adapter) | ![npm](https://img.shields.io/npm/v/@nexus-auth/sql-adapter?style=flat-square) | Raw SQL adapter |
+| [`@nexusauth/typeorm-adapter`](./packages/typeorm-adapter) | ![npm](https://img.shields.io/npm/v/@nexusauth/typeorm-adapter?style=flat-square) | TypeORM adapter |
+| [`@nexusauth/prisma-adapter`](./packages/prisma-adapter) | ![npm](https://img.shields.io/npm/v/@nexusauth/prisma-adapter?style=flat-square) | Prisma adapter |
+| [`@nexusauth/mongoose-adapter`](./packages/mongoose-adapter) | ![npm](https://img.shields.io/npm/v/@nexusauth/mongoose-adapter?style=flat-square) | Mongoose adapter |
+| [`@nexusauth/sql-adapter`](./packages/sql-adapter) | ![npm](https://img.shields.io/npm/v/@nexusauth/sql-adapter?style=flat-square) | Raw SQL adapter |
 | **OAuth Providers** |
-| [`@nexus-auth/providers`](./packages/providers) | ![npm](https://img.shields.io/npm/v/@nexus-auth/providers?style=flat-square) | Google, GitHub, Facebook, Microsoft |
+| [`@nexusauth/providers`](./packages/providers) | ![npm](https://img.shields.io/npm/v/@nexusauth/providers?style=flat-square) | Google, GitHub, Facebook, Microsoft |
 | **Framework Helpers** |
-| [`@nexus-auth/nextjs-helpers`](./packages/nextjs-helpers) | ![npm](https://img.shields.io/npm/v/@nexus-auth/nextjs-helpers?style=flat-square) | Next.js utilities |
-| [`@nexus-auth/nestjs-helpers`](./packages/nestjs-helpers) | ![npm](https://img.shields.io/npm/v/@nexus-auth/nestjs-helpers?style=flat-square) | NestJS guards & decorators |
-| [`@nexus-auth/express-helpers`](./packages/express-helpers) | ![npm](https://img.shields.io/npm/v/@nexus-auth/express-helpers?style=flat-square) | Express middleware |
+| [`@nexusauth/nextjs-helpers`](./packages/nextjs-helpers) | ![npm](https://img.shields.io/npm/v/@nexusauth/nextjs-helpers?style=flat-square) | Next.js utilities |
+| [`@nexusauth/nestjs-helpers`](./packages/nestjs-helpers) | ![npm](https://img.shields.io/npm/v/@nexusauth/nestjs-helpers?style=flat-square) | NestJS guards & decorators |
+| [`@nexusauth/express-helpers`](./packages/express-helpers) | ![npm](https://img.shields.io/npm/v/@nexusauth/express-helpers?style=flat-square) | Express middleware |
 
 ## 🎨 Architecture
 
@@ -288,7 +288,7 @@ NexusAuth uses **Hexagonal Architecture** (Ports & Adapters) to keep the core lo
 │                           │                                 │
 │         ┌─────────────────┴─────────────────┐               │
 │         │                                   │               │
-│         │      @nexus-auth/core             │               │
+│         │      @nexusauth/core             │               │
 │         │                                   │               │
 │         │  • Registration/Login             │               │
 │         │  • JWT Management                 │               │
@@ -444,6 +444,6 @@ If you find NexusAuth useful, please consider:
 
 **Built with ❤️ by the NexusAuth Team**
 
-[Website](https://nexus-auth.dev) • [Documentation](./docs) • [npm](https://www.npmjs.com/package/@nexus-auth/core)
+[Website](https://nexus-auth.dev) • [Documentation](./docs) • [npm](https://www.npmjs.com/package/@nexusauth/core)
 
 </div>

@@ -11,7 +11,7 @@ import { cookies } from 'next/headers';
  * @example
  * ```typescript
  * import { auth } from './auth';
- * import { getSession } from '@nexus-auth/nextjs-helpers';
+ * import { getSession } from '@nexusauth/nextjs-helpers';
  *
  * export default async function Page() {
  *   const session = await getSession(auth);
@@ -46,7 +46,7 @@ export async function getSession(nexusAuth: any) {
  * @example
  * ```typescript
  * import { auth } from './auth';
- * import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+ * import { getCurrentUser } from '@nexusauth/nextjs-helpers';
  *
  * export default async function ProfilePage() {
  *   const user = await getCurrentUser(auth);
@@ -67,7 +67,7 @@ export async function getCurrentUser(nexusAuth: any): Promise<any | null> {
  * @example
  * ```typescript
  * import { auth } from './auth';
- * import { requireAuth } from '@nexus-auth/nextjs-helpers';
+ * import { requireAuth } from '@nexusauth/nextjs-helpers';
  *
  * export default async function ProtectedPage() {
  *   await requireAuth(auth);
@@ -91,7 +91,7 @@ export async function requireAuth(nexusAuth: any): Promise<any> {
  * // app/actions.ts
  * 'use server';
  * import { auth } from './auth';
- * import { signOut } from '@nexus-auth/nextjs-helpers';
+ * import { signOut } from '@nexusauth/nextjs-helpers';
  *
  * export async function handleSignOut() {
  *   await signOut(auth);

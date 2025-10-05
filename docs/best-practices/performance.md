@@ -412,7 +412,7 @@ app.get('/profile', authenticate, (req, res) => {
 **O usar middleware condicional**:
 
 ```typescript
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 
 const authMiddleware = createAuthMiddleware(nexusAuth, {
   publicPaths: ['/', '/about', '/login', '/signup'],

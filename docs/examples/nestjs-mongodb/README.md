@@ -176,7 +176,7 @@ Actualizar perfil.
 ### Guard Personalizado
 
 ```typescript
-import { NexusAuthGuard } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthGuard } from '@nexusauth/nestjs-helpers';
 
 @Controller('users')
 @UseGuards(NexusAuthGuard)
@@ -191,7 +191,7 @@ export class UsersController {
 ### Decorators
 
 ```typescript
-import { CurrentUser, CurrentUserId } from '@nexus-auth/nestjs-helpers';
+import { CurrentUser, CurrentUserId } from '@nexusauth/nestjs-helpers';
 
 @Get('profile')
 @UseGuards(NexusAuthGuard)
@@ -206,7 +206,7 @@ async getProfile(
 ### Module Registration
 
 ```typescript
-import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
 
 @Module({
   imports: [

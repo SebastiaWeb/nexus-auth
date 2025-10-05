@@ -8,7 +8,7 @@ Esta guía te ayudará a empezar a usar `nexus-auth` en tu proyecto.
 
 ## 1. Conceptos Fundamentales
 
-`nexus-auth` está diseñado con una arquitectura de "puertos y adaptadores" (Hexagonal Architecture). Esto significa que el núcleo (`@nexus-auth/core`) contiene toda la lógica de autenticación, pero es agnóstico a la base de datos o al proveedor de OAuth que uses.
+`nexus-auth` está diseñado con una arquitectura de "puertos y adaptadores" (Hexagonal Architecture). Esto significa que el núcleo (`@nexusauth/core`) contiene toda la lógica de autenticación, pero es agnóstico a la base de datos o al proveedor de OAuth que uses.
 
 - **Core**: Contiene la lógica principal (`NexusAuth`).
 - **Adaptadores**: Conectan `nexus-auth` a tu base de datos (ej. `TypeORM`, `Prisma`).
@@ -22,15 +22,15 @@ Esta guía te ayudará a empezar a usar `nexus-auth` en tu proyecto.
 
 ```bash
 # Usando pnpm
-pnpm add @nexus-auth/core
+pnpm add @nexusauth/core
 
 # Usando npm
-npm install @nexus-auth/core
+npm install @nexusauth/core
 ```
 
 ### Instalar peerDependencies
 
-`@nexus-auth/core` utiliza `jsonwebtoken` para la gestión de tokens y `bcrypt` para el hasheo de contraseñas. Debes instalarlos como peerDependencies:
+`@nexusauth/core` utiliza `jsonwebtoken` para la gestión de tokens y `bcrypt` para el hasheo de contraseñas. Debes instalarlos como peerDependencies:
 
 ```bash
 pnpm add jsonwebtoken bcrypt
@@ -42,10 +42,10 @@ pnpm add -D @types/jsonwebtoken @types/bcrypt
 
 ```bash
 # Para TypeORM
-pnpm add @nexus-auth/typeorm-adapter typeorm
+pnpm add @nexusauth/typeorm-adapter typeorm
 
 # Para Prisma (próximamente)
-# pnpm add @nexus-auth/prisma-adapter prisma
+# pnpm add @nexusauth/prisma-adapter prisma
 ```
 
 ---
@@ -55,8 +55,8 @@ pnpm add @nexus-auth/typeorm-adapter typeorm
 ### Inicialización
 
 ```typescript
-import { NexusAuth } from "@nexus-auth/core";
-import { TypeORMAdapter } from "@nexus-auth/typeorm-adapter";
+import { NexusAuth } from "@nexusauth/core";
+import { TypeORMAdapter } from "@nexusauth/typeorm-adapter";
 import { DataSource } from "typeorm";
 
 // Configura tu DataSource de TypeORM
@@ -366,9 +366,9 @@ const auth = new NexusAuth({
 Usa las entidades por defecto que provee NexusAuth:
 
 ```typescript
-import { TypeORMAdapter } from "@nexus-auth/typeorm-adapter";
+import { TypeORMAdapter } from "@nexusauth/typeorm-adapter";
 import { DataSource } from "typeorm";
-import { UserEntity, SessionEntity, AccountEntity } from "@nexus-auth/typeorm-adapter/entities";
+import { UserEntity, SessionEntity, AccountEntity } from "@nexusauth/typeorm-adapter/entities";
 
 const dataSource = new DataSource({
   // ... configuración
@@ -383,7 +383,7 @@ const adapter = TypeORMAdapter(dataSource);
 Mapea tus entidades existentes:
 
 ```typescript
-import { TypeORMAdapter } from "@nexus-auth/typeorm-adapter";
+import { TypeORMAdapter } from "@nexusauth/typeorm-adapter";
 import { MyUser } from "./entities/MyUser";
 
 const adapter = TypeORMAdapter(dataSource, {
@@ -493,7 +493,7 @@ const auth = new NexusAuth({
 
 ```typescript
 import express from "express";
-import { NexusAuth } from "@nexus-auth/core";
+import { NexusAuth } from "@nexusauth/core";
 
 const app = express();
 app.use(express.json());
@@ -611,15 +611,15 @@ try {
 ### Instalación de Providers
 
 ```bash
-pnpm add @nexus-auth/providers
+pnpm add @nexusauth/providers
 ```
 
 ### Configuración con OAuth
 
 ```typescript
-import { NexusAuth } from "@nexus-auth/core";
-import { GoogleProvider, GitHubProvider, FacebookProvider, MicrosoftProvider } from "@nexus-auth/providers";
-import { TypeORMAdapter } from "@nexus-auth/typeorm-adapter";
+import { NexusAuth } from "@nexusauth/core";
+import { GoogleProvider, GitHubProvider, FacebookProvider, MicrosoftProvider } from "@nexusauth/providers";
+import { TypeORMAdapter } from "@nexusauth/typeorm-adapter";
 
 const auth = new NexusAuth({
   secret: process.env.NEXUS_AUTH_SECRET!,
@@ -757,7 +757,7 @@ MicrosoftProvider({
 **Ejemplo de uso:**
 
 ```typescript
-import { MicrosoftProvider } from '@nexus-auth/providers';
+import { MicrosoftProvider } from '@nexusauth/providers';
 
 const auth = new NexusAuth({
   providers: [
@@ -775,7 +775,7 @@ const auth = new NexusAuth({
 Puedes crear tus propios providers OAuth usando la clase `OAuth2Provider`:
 
 ```typescript
-import { OAuth2Provider } from "@nexus-auth/core";
+import { OAuth2Provider } from "@nexusauth/core";
 
 function DiscordProvider(config: { clientId: string; clientSecret: string }) {
   return new OAuth2Provider(
@@ -866,7 +866,7 @@ NexusAuth soporta múltiples ORMs y estrategias de persistencia a través de su 
 Ya documentado en secciones anteriores. Ver sección sobre TypeORM para más detalles.
 
 ```bash
-pnpm add @nexus-auth/typeorm-adapter typeorm
+pnpm add @nexusauth/typeorm-adapter typeorm
 ```
 
 #### 12.2. Prisma Adapter
@@ -876,14 +876,14 @@ El adaptador de Prisma permite usar Prisma ORM con NexusAuth, incluyendo soporte
 **Instalación:**
 
 ```bash
-pnpm add @nexus-auth/prisma-adapter @prisma/client
+pnpm add @nexusauth/prisma-adapter @prisma/client
 ```
 
 **Uso Básico:**
 
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -1017,13 +1017,13 @@ const auth = new NexusAuth({
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*",
+    "@nexusauth/core": "workspace:*",
     "@prisma/client": "^5.0.0 || ^6.0.0"
   }
 }
 ```
 
-Para más ejemplos y documentación completa, consulta el [README de @nexus-auth/prisma-adapter](packages/prisma-adapter/README.md).
+Para más ejemplos y documentación completa, consulta el [README de @nexusauth/prisma-adapter](packages/prisma-adapter/README.md).
 
 ---
 
@@ -1034,15 +1034,15 @@ El adaptador de Mongoose permite usar MongoDB con Mongoose ODM, incluyendo sopor
 **Instalación:**
 
 ```bash
-pnpm add @nexus-auth/mongoose-adapter mongoose
+pnpm add @nexusauth/mongoose-adapter mongoose
 ```
 
 **Uso Básico:**
 
 ```typescript
 import mongoose from 'mongoose';
-import { NexusAuth } from '@nexus-auth/core';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 
 // Crear conexión
 const connection = await mongoose.createConnection(process.env.MONGO_URL!);
@@ -1203,7 +1203,7 @@ const auth = new NexusAuth({
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*",
+    "@nexusauth/core": "workspace:*",
     "mongoose": "^7.0.0 || ^8.0.0"
   }
 }
@@ -1213,9 +1213,9 @@ const auth = new NexusAuth({
 
 ```typescript
 import mongoose from 'mongoose';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
-import { NexusAuth } from '@nexus-auth/core';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { GoogleProvider } from '@nexusauth/providers';
 
 const connection = await mongoose.createConnection(process.env.MONGO_URL!);
 
@@ -1231,7 +1231,7 @@ const auth = new NexusAuth({
 });
 ```
 
-Para más ejemplos y documentación completa, consulta el [README de @nexus-auth/mongoose-adapter](packages/mongoose-adapter/README.md).
+Para más ejemplos y documentación completa, consulta el [README de @nexusauth/mongoose-adapter](packages/mongoose-adapter/README.md).
 
 ---
 
@@ -1242,7 +1242,7 @@ El adaptador de Raw SQL proporciona máxima flexibilidad permitiendo usar SQL di
 **Instalación:**
 
 ```bash
-pnpm add @nexus-auth/sql-adapter
+pnpm add @nexusauth/sql-adapter
 # Plus tu cliente SQL de preferencia
 pnpm add pg # PostgreSQL
 # o
@@ -1255,7 +1255,7 @@ pnpm add better-sqlite3 # SQLite
 
 - **Sin ORM**: No requiere TypeORM, Prisma o Mongoose
 - **Multi-dialecto**: PostgreSQL, MySQL, SQLite, MSSQL
-- **Zero dependencies**: Solo depende de @nexus-auth/core
+- **Zero dependencies**: Solo depende de @nexusauth/core
 - **Control total**: Tú decides cómo ejecutar las queries
 - **Máxima flexibilidad**: Perfecto para schemas legacy complejos
 
@@ -1263,8 +1263,8 @@ pnpm add better-sqlite3 # SQLite
 
 ```typescript
 import { Pool } from 'pg';
-import { NexusAuth } from '@nexus-auth/core';
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -1286,8 +1286,8 @@ const auth = new NexusAuth({
 
 ```typescript
 import mysql from 'mysql2/promise';
-import { NexusAuth } from '@nexus-auth/core';
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -1312,8 +1312,8 @@ const auth = new NexusAuth({
 
 ```typescript
 import Database from 'better-sqlite3';
-import { NexusAuth } from '@nexus-auth/core';
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 
 const db = new Database('auth.db');
 
@@ -1431,14 +1431,14 @@ const auth = new NexusAuth({
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*"
+    "@nexusauth/core": "workspace:*"
   }
 }
 ```
 
 **Nota:** No tiene dependencias de clientes SQL - tú eliges cuál usar!
 
-Para más ejemplos (incluyendo Neon, PlanetScale, etc.), consulta el [README de @nexus-auth/sql-adapter](packages/sql-adapter/README.md).
+Para más ejemplos (incluyendo Neon, PlanetScale, etc.), consulta el [README de @nexusauth/sql-adapter](packages/sql-adapter/README.md).
 
 ---
 
@@ -1448,13 +1448,13 @@ NexusAuth proporciona helpers específicos para integrar fácilmente la autentic
 
 ### 13.1 Next.js Helpers
 
-Paquete: **`@nexus-auth/nextjs-helpers`**
+Paquete: **`@nexusauth/nextjs-helpers`**
 Soporte para **App Router** (Next.js 13+) y **Pages Router**
 
 #### Instalación
 
 ```bash
-npm install @nexus-auth/nextjs-helpers
+npm install @nexusauth/nextjs-helpers
 ```
 
 **peerDependencies**: `next ^13.0.0 || ^14.0.0 || ^15.0.0`
@@ -1466,7 +1466,7 @@ npm install @nexus-auth/nextjs-helpers
 ```typescript
 // app/dashboard/page.tsx
 import { auth } from '@/auth';
-import { getSession, getCurrentUser, requireAuth } from '@nexus-auth/nextjs-helpers';
+import { getSession, getCurrentUser, requireAuth } from '@nexusauth/nextjs-helpers';
 
 // Opción 1: Obtener sesión completa
 export default async function DashboardPage() {
@@ -1498,7 +1498,7 @@ export default async function AdminPage() {
 'use server';
 
 import { auth } from '@/auth';
-import { getCurrentUser, signOut } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser, signOut } from '@nexusauth/nextjs-helpers';
 import { revalidatePath } from 'next/cache';
 
 export async function updateProfile(formData: FormData) {
@@ -1521,7 +1521,7 @@ export async function handleSignOut() {
 ```typescript
 // app/api/user/route.ts
 import { auth } from '@/auth';
-import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser } from '@nexusauth/nextjs-helpers';
 
 export async function GET() {
   const user = await getCurrentUser(auth);
@@ -1541,7 +1541,7 @@ export async function GET() {
 ```typescript
 // pages/profile.tsx
 import { auth } from '@/auth';
-import { getSessionFromReq, getCurrentUserFromReq } from '@nexus-auth/nextjs-helpers';
+import { getSessionFromReq, getCurrentUserFromReq } from '@nexusauth/nextjs-helpers';
 
 export const getServerSideProps = async (ctx) => {
   // Opción 1: Sesión completa
@@ -1566,7 +1566,7 @@ export default function ProfilePage({ user }) {
 ```typescript
 // pages/dashboard.tsx
 import { auth } from '@/auth';
-import { withAuthSSR } from '@nexus-auth/nextjs-helpers';
+import { withAuthSSR } from '@nexusauth/nextjs-helpers';
 
 export const getServerSideProps = withAuthSSR(auth, async (ctx, user) => {
   // User está garantizado (HOC maneja la redirección)
@@ -1583,7 +1583,7 @@ export default function DashboardPage({ user }) {
 ```typescript
 // pages/api/protected.ts
 import { auth } from '@/auth';
-import { withAuth } from '@nexus-auth/nextjs-helpers';
+import { withAuth } from '@nexusauth/nextjs-helpers';
 
 export default withAuth(auth, async (req, res, user) => {
   // User está garantizado
@@ -1594,7 +1594,7 @@ export default withAuth(auth, async (req, res, user) => {
 ```typescript
 // pages/api/auth/signout.ts
 import { auth } from '@/auth';
-import { handleSignOut } from '@nexus-auth/nextjs-helpers';
+import { handleSignOut } from '@nexusauth/nextjs-helpers';
 
 export default async function handler(req, res) {
   await handleSignOut(auth, req, res);
@@ -1609,7 +1609,7 @@ export default async function handler(req, res) {
 ```typescript
 // middleware.ts
 import { auth } from '@/auth';
-import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
 
 export const middleware = createAuthMiddleware(auth, {
   publicRoutes: ['/', '/login', '/register'],
@@ -1629,7 +1629,7 @@ export const config = {
 // middleware.ts
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { getSessionFromMiddleware } from '@nexus-auth/nextjs-helpers';
+import { getSessionFromMiddleware } from '@nexusauth/nextjs-helpers';
 
 export async function middleware(request) {
   const session = await getSessionFromMiddleware(auth, request);
@@ -1667,19 +1667,19 @@ export async function middleware(request) {
 - `createAuthMiddleware(auth, config)` - Crea middleware de protección
 - `getSessionFromMiddleware(auth, request)` - Sesión desde middleware
 
-Para más ejemplos, consulta el [README de @nexus-auth/nextjs-helpers](packages/nextjs-helpers/README.md).
+Para más ejemplos, consulta el [README de @nexusauth/nextjs-helpers](packages/nextjs-helpers/README.md).
 
 ---
 
 ### 13.2 NestJS Helpers
 
-Paquete: **`@nexus-auth/nestjs-helpers`**
+Paquete: **`@nexusauth/nestjs-helpers`**
 Guards, Decorators, Module y Service para **NestJS**
 
 #### Instalación
 
 ```bash
-npm install @nexus-auth/nestjs-helpers
+npm install @nexusauth/nestjs-helpers
 ```
 
 **peerDependencies**:
@@ -1697,7 +1697,7 @@ npm install @nexus-auth/nestjs-helpers
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
-import { NexusAuthModule, NexusAuthGuard } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule, NexusAuthGuard } from '@nexusauth/nestjs-helpers';
 import { auth } from './auth';
 
 @Module({
@@ -1722,7 +1722,7 @@ export class AppModule {}
 ```typescript
 // users.controller.ts
 import { Controller, Get } from '@nestjs/common';
-import { Public, CurrentUser } from '@nexus-auth/nestjs-helpers';
+import { Public, CurrentUser } from '@nexusauth/nestjs-helpers';
 
 @Controller('users')
 export class UsersController {
@@ -1810,7 +1810,7 @@ Acceso a métodos de NexusAuth en servicios:
 ```typescript
 // users.service.ts
 import { Injectable } from '@nestjs/common';
-import { NexusAuthService } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthService } from '@nexusauth/nestjs-helpers';
 
 @Injectable()
 export class UsersService {
@@ -1839,7 +1839,7 @@ export class UsersService {
 #### Registro Asíncrono del Módulo
 
 ```typescript
-import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
 import { ConfigService } from '@nestjs/config';
 
 @Module({
@@ -1880,19 +1880,19 @@ export class AppModule {}
   - `getSessionAndUser(token)`, `deleteSession(token)`
   - `deleteUserSessions(userId)`
 
-Para más ejemplos, consulta el [README de @nexus-auth/nestjs-helpers](packages/nestjs-helpers/README.md).
+Para más ejemplos, consulta el [README de @nexusauth/nestjs-helpers](packages/nestjs-helpers/README.md).
 
 ---
 
 ### 13.3 Express Helpers
 
-Paquete: **`@nexus-auth/express-helpers`**
+Paquete: **`@nexusauth/express-helpers`**
 Middleware optimizado y helpers para **Express**
 
 #### Instalación
 
 ```bash
-npm install @nexus-auth/express-helpers cookie-parser
+npm install @nexusauth/express-helpers cookie-parser
 ```
 
 **peerDependencies**:
@@ -1908,7 +1908,7 @@ npm install @nexus-auth/express-helpers cookie-parser
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import { auth } from './auth';
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 
 const app = express();
 
@@ -1932,7 +1932,7 @@ app.listen(3000);
 **Autenticación Requerida**:
 
 ```typescript
-import { requireAuth } from '@nexus-auth/express-helpers';
+import { requireAuth } from '@nexusauth/express-helpers';
 
 app.get('/profile', requireAuth(auth), (req, res) => {
   res.json({ user: req.user });
@@ -1942,7 +1942,7 @@ app.get('/profile', requireAuth(auth), (req, res) => {
 **Autenticación Opcional**:
 
 ```typescript
-import { optionalAuth } from '@nexus-auth/express-helpers';
+import { optionalAuth } from '@nexusauth/express-helpers';
 
 app.get('/home', optionalAuth(auth), (req, res) => {
   if (req.user) {
@@ -1960,7 +1960,7 @@ app.get('/home', optionalAuth(auth), (req, res) => {
 **Extraer usuario y sesión:**
 
 ```typescript
-import { requireAuth, getCurrentUser, getCurrentSession } from '@nexus-auth/express-helpers';
+import { requireAuth, getCurrentUser, getCurrentSession } from '@nexusauth/express-helpers';
 
 app.get('/me', requireAuth(auth), (req, res) => {
   const user = getCurrentUser(req);
@@ -1976,7 +1976,7 @@ app.get('/me', requireAuth(auth), (req, res) => {
 **Sign Out:**
 
 ```typescript
-import { requireAuth, signOut } from '@nexus-auth/express-helpers';
+import { requireAuth, signOut } from '@nexusauth/express-helpers';
 
 app.post('/logout', requireAuth(auth), async (req, res) => {
   await signOut(auth, req, res);
@@ -1989,7 +1989,7 @@ app.post('/logout', requireAuth(auth), async (req, res) => {
 #### Manejadores Personalizados
 
 ```typescript
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 
 app.use(
   createAuthMiddleware(auth, {
@@ -2012,7 +2012,7 @@ app.use(
 #### Rutas Mixtas (Públicas y Protegidas)
 
 ```typescript
-import { requireAuth, optionalAuth } from '@nexus-auth/express-helpers';
+import { requireAuth, optionalAuth } from '@nexusauth/express-helpers';
 
 // Ruta pública
 app.get('/public', (req, res) => {
@@ -2054,7 +2054,7 @@ app.get('/dashboard', requireAuth(auth), (req, res) => {
 **TypeScript:**
 El tipo `Request` se extiende automáticamente para incluir `user` y `session`.
 
-Para más ejemplos, consulta el [README de @nexus-auth/express-helpers](packages/express-helpers/README.md).
+Para más ejemplos, consulta el [README de @nexusauth/express-helpers](packages/express-helpers/README.md).
 
 ---
 

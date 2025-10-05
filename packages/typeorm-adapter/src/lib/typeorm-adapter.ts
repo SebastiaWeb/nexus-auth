@@ -1,4 +1,4 @@
-import { BaseAdapter, User, Account } from "@nexus-auth/core";
+import { BaseAdapter, User, Account } from "@nexusauth/core";
 import { DataSource, DataSourceOptions } from "typeorm";
 import { AccountEntity, SessionEntity, UserEntity } from "./entities/index.js";
 

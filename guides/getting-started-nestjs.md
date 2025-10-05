@@ -13,7 +13,7 @@ This guide will help you integrate NexusAuth into your NestJS application.
 ### 1. Install Core Packages
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/nestjs-helpers
+npm install @nexusauth/core @nexusauth/nestjs-helpers
 npm install jsonwebtoken bcrypt
 npm install -D @types/jsonwebtoken @types/bcrypt
 ```
@@ -22,19 +22,19 @@ npm install -D @types/jsonwebtoken @types/bcrypt
 
 ```bash
 # For TypeORM (recommended for NestJS)
-npm install @nexus-auth/typeorm-adapter typeorm @nestjs/typeorm pg
+npm install @nexusauth/typeorm-adapter typeorm @nestjs/typeorm pg
 
 # For Mongoose
-npm install @nexus-auth/mongoose-adapter mongoose @nestjs/mongoose
+npm install @nexusauth/mongoose-adapter mongoose @nestjs/mongoose
 
 # For Prisma
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 ```
 
 ### 3. Install OAuth Providers (Optional)
 
 ```bash
-npm install @nexus-auth/providers
+npm install @nexusauth/providers
 ```
 
 ## Quick Start
@@ -93,8 +93,8 @@ Create `auth/auth.module.ts`:
 ```typescript
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 import { DataSource } from 'typeorm';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
@@ -147,7 +147,7 @@ import {
   Public,
   CurrentUser,
   CurrentSession,
-} from '@nexus-auth/nestjs-helpers';
+} from '@nexusauth/nestjs-helpers';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -208,7 +208,7 @@ Create `auth/auth.service.ts`:
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { NexusAuthService } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthService } from '@nexusauth/nestjs-helpers';
 
 @Injectable()
 export class AuthService {
@@ -270,7 +270,7 @@ export class AuthService {
 
 ```typescript
 import { Controller, Get, UseGuards } from '@nestjs/common';
-import { NexusAuthGuard, CurrentUser } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthGuard, CurrentUser } from '@nexusauth/nestjs-helpers';
 
 @Controller('users')
 @UseGuards(NexusAuthGuard)
@@ -298,7 +298,7 @@ export class UsersController {
 Update `auth/auth.module.ts`:
 
 ```typescript
-import { GoogleProvider } from '@nexus-auth/providers';
+import { GoogleProvider } from '@nexusauth/providers';
 
 @Module({
   imports: [
@@ -358,7 +358,7 @@ export class AuthController {
 Update `auth/auth.service.ts`:
 
 ```typescript
-import { GoogleProvider } from '@nexus-auth/providers';
+import { GoogleProvider } from '@nexusauth/providers';
 
 @Injectable()
 export class AuthService {
@@ -396,7 +396,7 @@ export class AuthService {
 For MongoDB, use the Mongoose adapter:
 
 ```typescript
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 import { Connection } from 'mongoose';
 import { InjectConnection } from '@nestjs/mongoose';
 
@@ -461,7 +461,7 @@ Apply auth guard globally in `main.ts`:
 
 ```typescript
 import { NestFactory, Reflector } from '@nestjs/core';
-import { NexusAuthGuard } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthGuard } from '@nexusauth/nestjs-helpers';
 import { AppModule } from './app.module';
 
 async function bootstrap() {

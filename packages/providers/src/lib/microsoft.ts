@@ -3,7 +3,7 @@
  * Microsoft OAuth Provider
  */
 
-import { OAuth2Provider, type OAuthUserProfile } from '@nexus-auth/core';
+import { OAuth2Provider, type OAuthUserProfile } from '@nexusauth/core';
 
 export interface MicrosoftProviderConfig {
   clientId: string;
@@ -27,7 +27,7 @@ export interface MicrosoftProviderConfig {
  *
  * @example
  * ```typescript
- * import { MicrosoftProvider } from '@nexus-auth/providers';
+ * import { MicrosoftProvider } from '@nexusauth/providers';
  *
  * const auth = new NexusAuth({
  *   providers: [

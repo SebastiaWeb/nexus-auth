@@ -1,5 +1,5 @@
 {
-  "name": "@nexus-auth/core",
+  "name": "@nexusauth/core",
   "version": "0.1.0",
   "description": "Core authentication library for NexusAuth - Framework agnostic, TypeScript-first authentication with schema mapping",
   "keywords": [

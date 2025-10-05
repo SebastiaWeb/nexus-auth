@@ -54,9 +54,9 @@ export default NextAuth({
 
 ```typescript
 // lib/auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -395,7 +395,7 @@ export default async function DashboardPage() {
 ### NexusAuth (después)
 
 ```typescript
-import { getSession } from '@nexus-auth/nextjs-helpers';
+import { getSession } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
@@ -413,7 +413,7 @@ export default async function DashboardPage() {
 **O usar `requireAuth`**:
 
 ```typescript
-import { requireAuth } from '@nexus-auth/nextjs-helpers';
+import { requireAuth } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 export default async function DashboardPage() {
@@ -497,7 +497,7 @@ export default function LoginPage() {
 
 ```typescript
 'use client';
-import { signOut } from '@nexus-auth/nextjs-helpers';
+import { signOut } from '@nexusauth/nextjs-helpers';
 import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
@@ -559,7 +559,7 @@ GOOGLE_CLIENT_SECRET=...
 
 ## Checklist de Migración
 
-- [ ] Instalar `@nexus-auth/core`, `@nexus-auth/nextjs-helpers`, `@nexus-auth/prisma-adapter`
+- [ ] Instalar `@nexusauth/core`, `@nexusauth/nextjs-helpers`, `@nexusauth/prisma-adapter`
 - [ ] Actualizar Prisma schema (añadir `password`, `createdAt`, `VerificationToken`)
 - [ ] Ejecutar `npx prisma migrate dev`
 - [ ] Crear `lib/auth.ts` con configuración de NexusAuth

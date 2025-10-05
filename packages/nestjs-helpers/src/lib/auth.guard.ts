@@ -24,7 +24,7 @@ export const IS_PUBLIC_KEY = 'isPublic';
  * @example
  * ```typescript
  * // app.module.ts
- * import { NexusAuthGuard, NEXUS_AUTH } from '@nexus-auth/nestjs-helpers';
+ * import { NexusAuthGuard, NEXUS_AUTH } from '@nexusauth/nestjs-helpers';
  *
  * @Module({
  *   providers: [

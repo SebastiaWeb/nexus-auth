@@ -1,4 +1,4 @@
-import { BaseAdapter, User, Account } from "@nexus-auth/core";
+import { BaseAdapter, User, Account } from "@nexusauth/core";
 
 /**
  * SQL query executor function type
@@ -71,7 +71,7 @@ export interface SQLAdapterConfig {
  * @example
  * ```typescript
  * import { Pool } from 'pg';
- * import { SQLAdapter } from '@nexus-auth/sql-adapter';
+ * import { SQLAdapter } from '@nexusauth/sql-adapter';
  *
  * const pool = new Pool({ connectionString: process.env.DATABASE_URL });
  *

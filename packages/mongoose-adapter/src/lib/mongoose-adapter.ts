@@ -1,4 +1,4 @@
-import { BaseAdapter, User, Account } from "@nexus-auth/core";
+import { BaseAdapter, User, Account } from "@nexusauth/core";
 import type { Connection, Model, Schema } from "mongoose";
 
 /**
@@ -108,7 +108,7 @@ function getDefaultSchemas(mongoose: any) {
  * @example
  * ```typescript
  * import mongoose from 'mongoose';
- * import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+ * import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
  *
  * const connection = await mongoose.createConnection(process.env.MONGO_URL);
  *

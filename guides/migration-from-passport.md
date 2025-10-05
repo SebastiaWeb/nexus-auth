@@ -36,14 +36,14 @@ npm uninstall passport passport-local passport-google-oauth20 express-session
 
 **Install NexusAuth:**
 ```bash
-npm install @nexus-auth/core @nexus-auth/express-helpers
+npm install @nexusauth/core @nexusauth/express-helpers
 npm install jsonwebtoken bcrypt
 npm install -D @types/jsonwebtoken @types/bcrypt
 
 # Install database adapter
-npm install @nexus-auth/typeorm-adapter typeorm pg
+npm install @nexusauth/typeorm-adapter typeorm pg
 # OR
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 ```
 
 ---
@@ -133,10 +133,10 @@ passport.deserializeUser(async (id: string, done) => {
 
 **NexusAuth Setup:**
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 import { DataSource } from 'typeorm';
 
 // Database setup
@@ -236,7 +236,7 @@ app.post('/logout', (req, res) => {
 
 **NexusAuth Routes:**
 ```typescript
-import { requireAuth } from '@nexus-auth/express-helpers';
+import { requireAuth } from '@nexusauth/express-helpers';
 
 // Login
 app.post('/login', async (req, res) => {
@@ -349,7 +349,7 @@ app.get('/profile', ensureAuthenticated, (req, res) => {
 
 **NexusAuth:**
 ```typescript
-import { requireAuth } from '@nexus-auth/express-helpers';
+import { requireAuth } from '@nexusauth/express-helpers';
 
 app.get('/profile', requireAuth, (req, res) => {
   res.json({
@@ -606,7 +606,7 @@ if (req.isAuthenticated()) {
 
 **After:**
 ```typescript
-import { getCurrentUser } from '@nexus-auth/express-helpers';
+import { getCurrentUser } from '@nexusauth/express-helpers';
 
 const user = await getCurrentUser(auth, req);
 if (user) {

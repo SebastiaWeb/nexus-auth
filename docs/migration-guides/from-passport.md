@@ -212,9 +212,9 @@ export const authenticate = async (req, res, next) => {
 
 ```typescript
 // lib/auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { AppDataSource } from './data-source';
 import { User } from './entities/User';
 
@@ -300,7 +300,7 @@ export default router;
 
 ```typescript
 // middleware/auth.ts
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 import { nexusAuth } from '../lib/auth';
 
 export const authenticate = createAuthMiddleware(nexusAuth);
@@ -319,9 +319,9 @@ export const authenticate = createAuthMiddleware(nexusAuth);
 npm uninstall passport passport-local passport-google-oauth20 passport-jwt
 
 # Instalar NexusAuth
-npm install @nexus-auth/core @nexus-auth/express-helpers
-npm install @nexus-auth/typeorm-adapter typeorm
-npm install @nexus-auth/providers
+npm install @nexusauth/core @nexusauth/express-helpers
+npm install @nexusauth/typeorm-adapter typeorm
+npm install @nexusauth/providers
 ```
 
 ### Paso 2: Actualizar Entity/Model
@@ -462,7 +462,7 @@ export const authenticate = async (req, res, next) => {
 **Después (NexusAuth)** - Una línea:
 
 ```typescript
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 import { nexusAuth } from '../lib/auth';
 
 export const authenticate = createAuthMiddleware(nexusAuth);
@@ -505,7 +505,7 @@ passport.use(
 **Después (NexusAuth)** - Configuración simple:
 
 ```typescript
-import { GoogleProvider } from '@nexus-auth/providers';
+import { GoogleProvider } from '@nexusauth/providers';
 
 export const nexusAuth = NexusAuth({
   providers: [

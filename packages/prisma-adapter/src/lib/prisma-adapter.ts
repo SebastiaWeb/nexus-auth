@@ -1,4 +1,4 @@
-import { BaseAdapter, User, Account } from "@nexus-auth/core";
+import { BaseAdapter, User, Account } from "@nexusauth/core";
 
 /**
  * Configuration options for the Prisma adapter
@@ -74,7 +74,7 @@ export interface PrismaAdapterConfig {
  * @example
  * ```typescript
  * import { PrismaClient } from '@prisma/client';
- * import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+ * import { PrismaAdapter } from '@nexusauth/prisma-adapter';
  *
  * const prisma = new PrismaClient();
  *

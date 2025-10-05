@@ -1,6 +1,6 @@
 
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, Index, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Account } from '@nexus-auth/core';
+import { Account } from '@nexusauth/core';
 import { UserEntity } from './user.entity.js';
 
 @Entity('accounts')

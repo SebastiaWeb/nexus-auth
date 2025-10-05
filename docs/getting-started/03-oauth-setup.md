@@ -7,7 +7,7 @@ Guía para configurar Google, GitHub, Facebook y Microsoft OAuth.
 ## 1. Instalar el Provider Package
 
 ```bash
-npm install @nexus-auth/providers
+npm install @nexusauth/providers
 ```
 
 ---
@@ -31,9 +31,9 @@ npm install @nexus-auth/providers
 
 ```typescript
 // src/auth/nexus.config.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 
 export const nexusAuth = NexusAuth({
   adapter: TypeORMAdapter(/* ... */),
@@ -112,7 +112,7 @@ export default router;
 ### Paso 2: Configurar Provider
 
 ```typescript
-import { GitHubProvider } from '@nexus-auth/providers';
+import { GitHubProvider } from '@nexusauth/providers';
 
 export const nexusAuth = NexusAuth({
   providers: [
@@ -149,7 +149,7 @@ GITHUB_CLIENT_SECRET=ghp_xyz789...
 ### Paso 2: Configurar Provider
 
 ```typescript
-import { FacebookProvider } from '@nexus-auth/providers';
+import { FacebookProvider } from '@nexusauth/providers';
 
 export const nexusAuth = NexusAuth({
   providers: [
@@ -178,7 +178,7 @@ export const nexusAuth = NexusAuth({
 ### Paso 2: Configurar Provider
 
 ```typescript
-import { MicrosoftProvider } from '@nexus-auth/providers';
+import { MicrosoftProvider } from '@nexusauth/providers';
 
 export const nexusAuth = NexusAuth({
   providers: [
@@ -205,7 +205,7 @@ import {
   GitHubProvider,
   FacebookProvider,
   MicrosoftProvider
-} from '@nexus-auth/providers';
+} from '@nexusauth/providers';
 
 export const nexusAuth = NexusAuth({
   providers: [

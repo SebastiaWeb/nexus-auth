@@ -47,7 +47,7 @@ export interface AuthMiddlewareOptions {
  * import express from 'express';
  * import cookieParser from 'cookie-parser';
  * import { auth } from './auth';
- * import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+ * import { createAuthMiddleware } from '@nexusauth/express-helpers';
  *
  * const app = express();
  * app.use(cookieParser());

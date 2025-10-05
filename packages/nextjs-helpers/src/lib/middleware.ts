@@ -42,7 +42,7 @@ export interface AuthMiddlewareConfig {
  * ```typescript
  * // middleware.ts
  * import { auth } from './auth';
- * import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+ * import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
  *
  * export const middleware = createAuthMiddleware(auth, {
  *   publicRoutes: ['/', '/login', '/register'],
@@ -137,7 +137,7 @@ export function createAuthMiddleware(
  * ```typescript
  * // middleware.ts
  * import { auth } from './auth';
- * import { getSessionFromMiddleware } from '@nexus-auth/nextjs-helpers';
+ * import { getSessionFromMiddleware } from '@nexusauth/nextjs-helpers';
  *
  * export async function middleware(request: NextRequest) {
  *   const session = await getSessionFromMiddleware(auth, request);

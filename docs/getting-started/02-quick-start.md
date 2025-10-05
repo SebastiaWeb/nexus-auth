@@ -61,8 +61,8 @@ export const AppDataSource = new DataSource({
 
 ```typescript
 // src/auth/nexus.config.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 import { AppDataSource } from '../db/data-source';
 import { User } from '../entities/User';
 

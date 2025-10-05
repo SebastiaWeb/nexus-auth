@@ -13,11 +13,11 @@
 ### 1. Instalar el Core
 
 ```bash
-npm install @nexus-auth/core
+npm install @nexusauth/core
 # o
-yarn add @nexus-auth/core
+yarn add @nexusauth/core
 # o
-pnpm add @nexus-auth/core
+pnpm add @nexusauth/core
 ```
 
 ### 2. Instalar Dependencias Peer
@@ -38,7 +38,7 @@ Elige **uno** según tu base de datos:
 ### TypeORM (PostgreSQL, MySQL, etc.)
 
 ```bash
-npm install @nexus-auth/typeorm-adapter typeorm
+npm install @nexusauth/typeorm-adapter typeorm
 ```
 
 **Drivers necesarios** (instala el que uses):
@@ -56,20 +56,20 @@ npm install better-sqlite3
 ### Prisma
 
 ```bash
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 npm install --save-dev prisma
 ```
 
 ### Mongoose (MongoDB)
 
 ```bash
-npm install @nexus-auth/mongoose-adapter mongoose
+npm install @nexusauth/mongoose-adapter mongoose
 ```
 
 ### Raw SQL
 
 ```bash
-npm install @nexus-auth/sql-adapter
+npm install @nexusauth/sql-adapter
 
 # Luego instala tu cliente SQL (ej: pg, mysql2, better-sqlite3)
 npm install pg
@@ -82,7 +82,7 @@ npm install pg
 Si necesitas OAuth (Google, GitHub, etc.):
 
 ```bash
-npm install @nexus-auth/providers
+npm install @nexusauth/providers
 ```
 
 **No tiene dependencias peer** - funciona out of the box.
@@ -96,7 +96,7 @@ Según tu framework:
 ### Next.js
 
 ```bash
-npm install @nexus-auth/nextjs-helpers next
+npm install @nexusauth/nextjs-helpers next
 ```
 
 Compatible con Next.js 13, 14, y 15 (App Router y Pages Router).
@@ -104,13 +104,13 @@ Compatible con Next.js 13, 14, y 15 (App Router y Pages Router).
 ### NestJS
 
 ```bash
-npm install @nexus-auth/nestjs-helpers @nestjs/common @nestjs/core reflect-metadata
+npm install @nexusauth/nestjs-helpers @nestjs/common @nestjs/core reflect-metadata
 ```
 
 ### Express
 
 ```bash
-npm install @nexus-auth/express-helpers express
+npm install @nexusauth/express-helpers express
 npm install --save-dev @types/express
 ```
 
@@ -122,17 +122,17 @@ Para un proyecto **Next.js + Prisma + Google OAuth**:
 
 ```bash
 # Core
-npm install @nexus-auth/core bcrypt jsonwebtoken
+npm install @nexusauth/core bcrypt jsonwebtoken
 
 # Adapter
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 npm install --save-dev prisma
 
 # OAuth Provider
-npm install @nexus-auth/providers
+npm install @nexusauth/providers
 
 # Framework Helper
-npm install @nexus-auth/nextjs-helpers next
+npm install @nexusauth/nextjs-helpers next
 
 # Types
 npm install --save-dev @types/bcrypt @types/jsonwebtoken
@@ -145,8 +145,8 @@ npm install --save-dev @types/bcrypt @types/jsonwebtoken
 Crea un archivo `test-nexus.ts`:
 
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 
 console.log('✅ NexusAuth instalado correctamente');
 ```

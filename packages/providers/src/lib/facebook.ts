@@ -3,7 +3,7 @@
  * Facebook OAuth Provider
  */
 
-import { OAuth2Provider, type OAuthUserProfile } from '@nexus-auth/core';
+import { OAuth2Provider, type OAuthUserProfile } from '@nexusauth/core';
 
 export interface FacebookProviderConfig {
   clientId: string;
@@ -20,7 +20,7 @@ export interface FacebookProviderConfig {
  *
  * @example
  * ```typescript
- * import { FacebookProvider } from '@nexus-auth/providers';
+ * import { FacebookProvider } from '@nexusauth/providers';
  *
  * const auth = new NexusAuth({
  *   providers: [

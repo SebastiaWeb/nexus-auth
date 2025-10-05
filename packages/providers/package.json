@@ -1,5 +1,5 @@
 {
-  "name": "@nexus-auth/providers",
+  "name": "@nexusauth/providers",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -8,7 +8,7 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@nexus-auth/source": "./src/index.ts",
+      "@nexusauth/source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
@@ -24,7 +24,7 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@nexus-auth/core": "^0.1.0"
+    "@nexusauth/core": "workspace:*"
   },
   "description": "OAuth provider implementations for NexusAuth - Google, GitHub, Facebook, Microsoft",
   "keywords": [

@@ -3,7 +3,7 @@
  * Google OAuth Provider
  */
 
-import { OAuth2Provider, type OAuthUserProfile } from '@nexus-auth/core';
+import { OAuth2Provider, type OAuthUserProfile } from '@nexusauth/core';
 
 export interface GoogleProviderConfig {
   clientId: string;
@@ -20,7 +20,7 @@ export interface GoogleProviderConfig {
  *
  * @example
  * ```typescript
- * import { GoogleProvider } from '@nexus-auth/providers';
+ * import { GoogleProvider } from '@nexusauth/providers';
  *
  * const auth = new NexusAuth({
  *   providers: [

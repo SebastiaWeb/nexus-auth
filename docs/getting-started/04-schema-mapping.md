@@ -43,7 +43,7 @@ CREATE TABLE app_users (
 ## Schema Mapping con TypeORM
 
 ```typescript
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 import { DataSource } from 'typeorm';
 
 const dataSource = new DataSource({
@@ -97,7 +97,7 @@ model AppUser {
 Configuración NexusAuth:
 
 ```typescript
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -147,7 +147,7 @@ export const AppUserModel = mongoose.model('AppUser', appUserSchema, 'app_users'
 Configuración NexusAuth:
 
 ```typescript
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 
 export const nexusAuth = NexusAuth({
   adapter: MongooseAdapter({
@@ -176,7 +176,7 @@ export const nexusAuth = NexusAuth({
 Para máxima flexibilidad (cualquier DB sin ORM):
 
 ```typescript
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 import pg from 'pg';
 
 const pool = new pg.Pool({

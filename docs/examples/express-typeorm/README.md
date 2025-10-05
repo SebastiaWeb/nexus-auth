@@ -342,9 +342,9 @@ http://localhost:3000/api/auth/google
 
 ```typescript
 // src/config/nexus-auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { AppDataSource } from './database';
 import { User, Account, Session, VerificationToken } from '../entities';
 
@@ -416,7 +416,7 @@ export const nexusAuth = NexusAuth({
 
 ```typescript
 // src/middleware/authenticate.ts
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 import { nexusAuth } from '../config/nexus-auth';
 
 export const authenticate = createAuthMiddleware(nexusAuth);

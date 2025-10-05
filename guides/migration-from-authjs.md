@@ -34,14 +34,14 @@ npm uninstall next-auth
 
 **Install NexusAuth:**
 ```bash
-npm install @nexus-auth/core @nexus-auth/nextjs-helpers
+npm install @nexusauth/core @nexusauth/nextjs-helpers
 npm install jsonwebtoken bcrypt
 npm install -D @types/jsonwebtoken @types/bcrypt
 
 # Install adapter (choose based on your database)
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 # OR
-npm install @nexus-auth/typeorm-adapter typeorm
+npm install @nexusauth/typeorm-adapter typeorm
 ```
 
 ---
@@ -183,9 +183,9 @@ export default NextAuth({
 
 **NexusAuth Configuration (`lib/auth.ts`):**
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -407,7 +407,7 @@ export const config = {
 ```typescript
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
 import { auth } from '@/lib/auth';
 
 const authMiddleware = createAuthMiddleware(auth, {
@@ -446,7 +446,7 @@ export default async function Page() {
 
 **NexusAuth:**
 ```typescript
-import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser } from '@nexusauth/nextjs-helpers';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 

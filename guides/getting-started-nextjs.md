@@ -13,7 +13,7 @@ This guide will help you integrate NexusAuth into your Next.js application (App 
 ### 1. Install Core Packages
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/nextjs-helpers
+npm install @nexusauth/core @nexusauth/nextjs-helpers
 npm install jsonwebtoken bcrypt
 npm install -D @types/jsonwebtoken @types/bcrypt
 ```
@@ -22,20 +22,20 @@ npm install -D @types/jsonwebtoken @types/bcrypt
 
 ```bash
 # For Prisma (recommended for Next.js)
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 npx prisma init
 
 # For TypeORM
-npm install @nexus-auth/typeorm-adapter typeorm pg
+npm install @nexusauth/typeorm-adapter typeorm pg
 
 # For MongoDB
-npm install @nexus-auth/mongoose-adapter mongoose
+npm install @nexusauth/mongoose-adapter mongoose
 ```
 
 ### 3. Install OAuth Providers (Optional)
 
 ```bash
-npm install @nexus-auth/providers
+npm install @nexusauth/providers
 ```
 
 ## Quick Start (App Router)
@@ -125,8 +125,8 @@ npx prisma generate
 Create `lib/auth.ts`:
 
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -238,7 +238,7 @@ Create `app/api/auth/me/route.ts`:
 
 ```typescript
 import { NextRequest, NextResponse } from 'next/server';
-import { getSession } from '@nexus-auth/nextjs-helpers';
+import { getSession } from '@nexusauth/nextjs-helpers';
 import { auth } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
@@ -265,7 +265,7 @@ Create `middleware.ts`:
 ```typescript
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
 import { auth } from '@/lib/auth';
 
 const authMiddleware = createAuthMiddleware(auth, {
@@ -290,7 +290,7 @@ export const config = {
 Use auth in Server Components:
 
 ```typescript
-import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser } from '@nexusauth/nextjs-helpers';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
@@ -379,7 +379,7 @@ export default function LoginPage() {
 Add Google OAuth to `lib/auth.ts`:
 
 ```typescript
-import { GoogleProvider } from '@nexus-auth/providers';
+import { GoogleProvider } from '@nexusauth/providers';
 
 export const googleProvider = new GoogleProvider({
   clientId: process.env.GOOGLE_CLIENT_ID!,

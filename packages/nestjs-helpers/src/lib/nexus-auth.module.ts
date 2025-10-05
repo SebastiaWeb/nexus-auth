@@ -29,7 +29,7 @@ export interface NexusAuthModuleOptions {
  * @example
  * ```typescript
  * // app.module.ts
- * import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
+ * import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
  * import { auth } from './auth';
  *
  * @Module({

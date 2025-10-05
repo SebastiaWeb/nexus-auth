@@ -12,7 +12,7 @@ import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from 
  * ```typescript
  * // pages/profile.tsx
  * import { auth } from '../auth';
- * import { getSessionFromReq } from '@nexus-auth/nextjs-helpers';
+ * import { getSessionFromReq } from '@nexusauth/nextjs-helpers';
  *
  * export const getServerSideProps = async (ctx) => {
  *   const session = await getSessionFromReq(auth, ctx.req);
@@ -74,7 +74,7 @@ export async function getCurrentUserFromReq(
  * ```typescript
  * // pages/api/protected.ts
  * import { auth } from '../../auth';
- * import { withAuth } from '@nexus-auth/nextjs-helpers';
+ * import { withAuth } from '@nexusauth/nextjs-helpers';
  *
  * export default withAuth(auth, async (req, res, user) => {
  *   res.json({ message: `Hello ${user.name}` });
@@ -103,7 +103,7 @@ export function withAuth(
  * ```typescript
  * // pages/dashboard.tsx
  * import { auth } from '../auth';
- * import { withAuthSSR } from '@nexus-auth/nextjs-helpers';
+ * import { withAuthSSR } from '@nexusauth/nextjs-helpers';
  *
  * export const getServerSideProps = withAuthSSR(auth, async (ctx, user) => {
  *   return { props: { user } };
@@ -137,7 +137,7 @@ export function withAuthSSR<P extends Record<string, any> = Record<string, any>>
  * ```typescript
  * // pages/api/auth/signout.ts
  * import { auth } from '../../../auth';
- * import { handleSignOut } from '@nexus-auth/nextjs-helpers';
+ * import { handleSignOut } from '@nexusauth/nextjs-helpers';
  *
  * export default async function handler(req, res) {
  *   await handleSignOut(auth, req, res);

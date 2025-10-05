@@ -7,8 +7,8 @@ Guía completa para usar NexusAuth en Next.js 13, 14 y 15 (App Router y Pages Ro
 ## Instalación
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/nextjs-helpers
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/core @nexusauth/nextjs-helpers
+npm install @nexusauth/prisma-adapter @prisma/client
 npm install bcrypt jsonwebtoken
 ```
 
@@ -73,9 +73,9 @@ model VerificationToken {
 
 ```typescript
 // lib/auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -218,7 +218,7 @@ export async function GET(request: NextRequest) {
 
 ```typescript
 // app/dashboard/page.tsx
-import { getSession, requireAuth } from '@nexus-auth/nextjs-helpers';
+import { getSession, requireAuth } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
@@ -245,7 +245,7 @@ export default async function DashboardPage() {
 
 ```typescript
 // app/profile/page.tsx
-import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 export default async function ProfilePage() {
@@ -352,7 +352,7 @@ export default function LoginPage() {
 // middleware.ts
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 const authMiddleware = createAuthMiddleware(nexusAuth, {
@@ -406,7 +406,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 ```typescript
 // pages/dashboard.tsx
 import { GetServerSideProps } from 'next';
-import { getSessionFromReq } from '@nexus-auth/nextjs-helpers';
+import { getSessionFromReq } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
@@ -442,7 +442,7 @@ export default function Dashboard({ user }: { user: any }) {
 
 ```typescript
 // pages/profile.tsx
-import { withAuth } from '@nexus-auth/nextjs-helpers';
+import { withAuth } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 function ProfilePage({ user }: { user: any }) {
@@ -478,7 +478,7 @@ export async function POST(request: NextRequest) {
 Client-side:
 
 ```typescript
-import { signOut } from '@nexus-auth/nextjs-helpers';
+import { signOut } from '@nexusauth/nextjs-helpers';
 
 const handleLogout = async () => {
   await signOut('/api/auth/signout');

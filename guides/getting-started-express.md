@@ -13,7 +13,7 @@ This guide will help you integrate NexusAuth into your Express.js application.
 ### 1. Install Core Packages
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/express-helpers
+npm install @nexusauth/core @nexusauth/express-helpers
 npm install jsonwebtoken bcrypt
 npm install -D @types/jsonwebtoken @types/bcrypt
 ```
@@ -24,22 +24,22 @@ Choose one based on your database:
 
 ```bash
 # For TypeORM (PostgreSQL, MySQL, SQLite, MSSQL)
-npm install @nexus-auth/typeorm-adapter typeorm pg
+npm install @nexusauth/typeorm-adapter typeorm pg
 
 # For Prisma
-npm install @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/prisma-adapter @prisma/client
 
 # For MongoDB
-npm install @nexus-auth/mongoose-adapter mongoose
+npm install @nexusauth/mongoose-adapter mongoose
 
 # For Raw SQL (any SQL database)
-npm install @nexus-auth/sql-adapter pg
+npm install @nexusauth/sql-adapter pg
 ```
 
 ### 3. Install OAuth Providers (Optional)
 
 ```bash
-npm install @nexus-auth/providers
+npm install @nexusauth/providers
 ```
 
 ## Quick Start
@@ -50,7 +50,7 @@ npm install @nexus-auth/providers
 
 ```typescript
 import { DataSource } from 'typeorm';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
 
 const dataSource = new DataSource({
   type: 'postgres',
@@ -73,7 +73,7 @@ const adapter = new TypeORMAdapter({ dataSource });
 **Using Raw SQL:**
 
 ```typescript
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 import { Pool } from 'pg';
 
 const pool = new Pool({
@@ -99,7 +99,7 @@ await adapter.createTables();
 ### Step 2: Initialize NexusAuth
 
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
+import { NexusAuth } from '@nexusauth/core';
 
 const auth = new NexusAuth({
   adapter,
@@ -121,7 +121,7 @@ import express from 'express';
 import {
   createAuthMiddleware,
   requireAuth
-} from '@nexus-auth/express-helpers';
+} from '@nexusauth/express-helpers';
 
 const app = express();
 app.use(express.json());
@@ -210,7 +210,7 @@ app.listen(3000, () => {
 ### Step 4: Add OAuth (Optional)
 
 ```typescript
-import { GoogleProvider } from '@nexus-auth/providers';
+import { GoogleProvider } from '@nexusauth/providers';
 
 const googleProvider = new GoogleProvider({
   clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -277,7 +277,7 @@ Check out the complete Express + TypeORM example in `/examples/express-typeorm`.
 
 ## Troubleshooting
 
-### "Cannot find module @nexus-auth/core"
+### "Cannot find module @nexusauth/core"
 Make sure you've installed all peerDependencies:
 ```bash
 npm install jsonwebtoken bcrypt

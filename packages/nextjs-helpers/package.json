@@ -1,5 +1,5 @@
 {
-  "name": "@nexus-auth/nextjs-helpers",
+  "name": "@nexusauth/nextjs-helpers",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -8,7 +8,7 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@nexus-auth/source": "./src/index.ts",
+      "@nexusauth/source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
@@ -24,7 +24,7 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@nexus-auth/core": "^0.1.0",
+    "@nexusauth/core": "workspace:*",
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0"
   },
   "description": "Next.js integration helpers for NexusAuth - App Router and Pages Router support",

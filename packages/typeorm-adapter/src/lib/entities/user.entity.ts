@@ -1,5 +1,5 @@
 import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '@nexus-auth/core';
+import { User } from '@nexusauth/core';
 
 @Entity('users')
 export class UserEntity implements User {

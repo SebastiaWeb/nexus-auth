@@ -144,7 +144,7 @@ Aplicación corriendo en `http://localhost:3000`
 
 ```typescript
 // app/dashboard/page.tsx
-import { getSession } from '@nexus-auth/nextjs-helpers';
+import { getSession } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
@@ -184,7 +184,7 @@ export default function ProfilePage() {
 
 ```typescript
 // middleware.ts
-import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 export default createAuthMiddleware(nexusAuth, {
@@ -204,7 +204,7 @@ export const config = {
 ### 1. Autenticación en Server Components
 
 ```typescript
-import { requireAuth } from '@nexus-auth/nextjs-helpers';
+import { requireAuth } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 
 export default async function ProtectedPage() {
