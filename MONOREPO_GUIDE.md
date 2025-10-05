@@ -32,8 +32,8 @@ La estructura principal que usaremos es:
 ```
 nexus-auth/
 ├── packages/
-│   ├── core/         # -> @nexus-auth/core (lógica principal)
-│   ├── typeorm-adapter/ # -> @nexus-auth/typeorm-adapter
+│   ├── core/         # -> @nexusauth/core (lógica principal)
+│   ├── typeorm-adapter/ # -> @nexusauth/typeorm-adapter
 │   └── ...           # -> Otros adapters y providers
 ├── nx.json           # -> Configuración de Nx
 ├── package.json      # -> Dependencias del workspace
@@ -50,14 +50,14 @@ Un `peerDependency` (dependencia de pares) es una dependencia que un paquete esp
 
 **Ejemplo práctico:**
 
-El paquete `@nexus-auth/typeorm-adapter` necesita `typeorm` para funcionar, pero no lo empaquetará dentro de sí mismo. En su lugar, su `package.json` se verá así:
+El paquete `@nexusauth/typeorm-adapter` necesita `typeorm` para funcionar, pero no lo empaquetará dentro de sí mismo. En su lugar, su `package.json` se verá así:
 
 ```json
 {
-  "name": "@nexus-auth/typeorm-adapter",
+  "name": "@nexusauth/typeorm-adapter",
   "version": "0.0.1",
   "peerDependencies": {
-    "@nexus-auth/core": "0.0.1",
+    "@nexusauth/core": "0.0.1",
     "typeorm": "^0.3.0"
   }
 }
@@ -66,7 +66,7 @@ El paquete `@nexus-auth/typeorm-adapter` necesita `typeorm` para funcionar, pero
 **¿Por qué es importante?**
 
 1.  **El usuario tiene el control:** El desarrollador que use nuestra librería ya tendrá `typeorm` en su proyecto. Nuestro adapter usará esa versión existente en lugar de forzar una propia, evitando conflictos.
-2.  **Paquetes pequeños:** Nuestro paquete `@nexus-auth/typeorm-adapter` solo contendrá la lógica del adaptador, no la librería `typeorm` completa, haciéndolo muy ligero.
+2.  **Paquetes pequeños:** Nuestro paquete `@nexusauth/typeorm-adapter` solo contendrá la lógica del adaptador, no la librería `typeorm` completa, haciéndolo muy ligero.
 
 ## 5. Comandos Comunes de Nx
 

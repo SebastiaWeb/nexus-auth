@@ -1,4 +1,4 @@
-# @nexus-auth/prisma-adapter
+# @nexusauth/prisma-adapter
 
 Prisma adapter for NexusAuth with support for schema mapping to existing databases.
 
@@ -13,17 +13,17 @@ Prisma adapter for NexusAuth with support for schema mapping to existing databas
 ## Installation
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/prisma-adapter @prisma/client
+npm install @nexusauth/core @nexusauth/prisma-adapter @prisma/client
 # or
-pnpm add @nexus-auth/core @nexus-auth/prisma-adapter @prisma/client
+pnpm add @nexusauth/core @nexusauth/prisma-adapter @prisma/client
 # or
-yarn add @nexus-auth/core @nexus-auth/prisma-adapter @prisma/client
+yarn add @nexusauth/core @nexusauth/prisma-adapter @prisma/client
 ```
 
 ## Requirements
 
 - `@prisma/client`: ^5.0.0 || ^6.0.0
-- `@nexus-auth/core`: workspace:*
+- `@nexusauth/core`: workspace:*
 
 ## Basic Usage
 
@@ -85,8 +85,8 @@ model Session {
 ### 2. Configure NexusAuth with Prisma Adapter
 
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -187,8 +187,8 @@ Creates a Prisma adapter instance for NexusAuth.
 
 ```typescript
 // lib/auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -203,8 +203,8 @@ export const auth = new NexusAuth({
 
 ```typescript
 import express from 'express';
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
 const app = express();

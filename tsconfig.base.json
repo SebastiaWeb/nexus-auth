@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@nexus-auth/core": ["packages/core/src/index.ts"],
-      "@nexus-auth/typeorm-adapter": ["packages/typeorm-adapter/src/index.ts"]
+      "@nexusauth/core": ["packages/core/src/index.ts"],
+      "@nexusauth/typeorm-adapter": ["packages/typeorm-adapter/src/index.ts"]
     },
     "composite": true,
     "declarationMap": true,
@@ -23,6 +23,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@nexus-auth/source"]
+    "customConditions": ["@nexusauth/source"]
   }
 }

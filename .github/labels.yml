@@ -64,39 +64,39 @@
 # Package Labels
 - name: "pkg: core"
   color: "006b75"
-  description: "@nexus-auth/core package"
+  description: "@nexusauth/core package"
 
 - name: "pkg: typeorm-adapter"
   color: "006b75"
-  description: "@nexus-auth/typeorm-adapter package"
+  description: "@nexusauth/typeorm-adapter package"
 
 - name: "pkg: prisma-adapter"
   color: "006b75"
-  description: "@nexus-auth/prisma-adapter package"
+  description: "@nexusauth/prisma-adapter package"
 
 - name: "pkg: mongoose-adapter"
   color: "006b75"
-  description: "@nexus-auth/mongoose-adapter package"
+  description: "@nexusauth/mongoose-adapter package"
 
 - name: "pkg: sql-adapter"
   color: "006b75"
-  description: "@nexus-auth/sql-adapter package"
+  description: "@nexusauth/sql-adapter package"
 
 - name: "pkg: providers"
   color: "006b75"
-  description: "@nexus-auth/providers package"
+  description: "@nexusauth/providers package"
 
 - name: "pkg: nextjs-helpers"
   color: "006b75"
-  description: "@nexus-auth/nextjs-helpers package"
+  description: "@nexusauth/nextjs-helpers package"
 
 - name: "pkg: nestjs-helpers"
   color: "006b75"
-  description: "@nexus-auth/nestjs-helpers package"
+  description: "@nexusauth/nestjs-helpers package"
 
 - name: "pkg: express-helpers"
   color: "006b75"
-  description: "@nexus-auth/express-helpers package"
+  description: "@nexusauth/express-helpers package"
 
 # Feature Area Labels
 - name: "area: authentication"

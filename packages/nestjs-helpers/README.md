@@ -1,4 +1,4 @@
-# @nexus-auth/nestjs-helpers
+# @nexusauth/nestjs-helpers
 
 NestJS helpers for NexusAuth - Guards, Decorators, Module, and Service.
 
@@ -14,12 +14,12 @@ NestJS helpers for NexusAuth - Guards, Decorators, Module, and Service.
 ## Installation
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/nestjs-helpers @nestjs/common @nestjs/core reflect-metadata
+npm install @nexusauth/core @nexusauth/nestjs-helpers @nestjs/common @nestjs/core reflect-metadata
 ```
 
 ## Requirements
 
-- `@nexus-auth/core`: workspace:*
+- `@nexusauth/core`: workspace:*
 - `@nestjs/common`: ^9.0.0 || ^10.0.0 || ^11.0.0
 - `@nestjs/core`: ^9.0.0 || ^10.0.0 || ^11.0.0
 - `reflect-metadata`: ^0.1.13 || ^0.2.0
@@ -30,9 +30,9 @@ npm install @nexus-auth/core @nexus-auth/nestjs-helpers @nestjs/common @nestjs/c
 
 ```typescript
 // auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -55,7 +55,7 @@ export const auth = new NexusAuth({
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
-import { NexusAuthModule, NexusAuthGuard } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule, NexusAuthGuard } from '@nexusauth/nestjs-helpers';
 import { auth } from './auth';
 
 @Module({
@@ -80,7 +80,7 @@ export class AppModule {}
 ```typescript
 // users.controller.ts
 import { Controller, Get } from '@nestjs/common';
-import { Public, CurrentUser } from '@nexus-auth/nestjs-helpers';
+import { Public, CurrentUser } from '@nexusauth/nestjs-helpers';
 
 @Controller('users')
 export class UsersController {
@@ -106,7 +106,7 @@ The `NexusAuthGuard` automatically protects all routes. Use `@Public()` to bypas
 ```typescript
 // app.module.ts
 import { APP_GUARD } from '@nestjs/core';
-import { NexusAuthGuard } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthGuard } from '@nexusauth/nestjs-helpers';
 
 @Module({
   providers: [
@@ -194,7 +194,7 @@ Access NexusAuth methods in your services.
 ```typescript
 // users.service.ts
 import { Injectable } from '@nestjs/common';
-import { NexusAuthService } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthService } from '@nexusauth/nestjs-helpers';
 
 @Injectable()
 export class UsersService {
@@ -223,7 +223,7 @@ export class UsersService {
 #### Synchronous Registration
 
 ```typescript
-import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
 import { auth } from './auth';
 
 @Module({
@@ -240,7 +240,7 @@ export class AppModule {}
 #### Asynchronous Registration
 
 ```typescript
-import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
 import { ConfigService } from '@nestjs/config';
 
 @Module({
@@ -263,9 +263,9 @@ export class AppModule {}
 
 ```typescript
 // auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -288,7 +288,7 @@ export const auth = new NexusAuth({
 // app.module.ts
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
-import { NexusAuthModule, NexusAuthGuard, NexusAuthService } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthModule, NexusAuthGuard, NexusAuthService } from '@nexusauth/nestjs-helpers';
 import { auth } from './auth';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
@@ -318,7 +318,7 @@ export class AppModule {}
 ```typescript
 // users.controller.ts
 import { Controller, Get, Patch, Body, Delete } from '@nestjs/common';
-import { CurrentUser, CurrentUserId } from '@nexus-auth/nestjs-helpers';
+import { CurrentUser, CurrentUserId } from '@nexusauth/nestjs-helpers';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -347,7 +347,7 @@ export class UsersController {
 ```typescript
 // auth.controller.ts
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { Public } from '@nexus-auth/nestjs-helpers';
+import { Public } from '@nexusauth/nestjs-helpers';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -378,7 +378,7 @@ export class AuthController {
 ```typescript
 // users.service.ts
 import { Injectable } from '@nestjs/common';
-import { NexusAuthService } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthService } from '@nexusauth/nestjs-helpers';
 
 @Injectable()
 export class UsersService {
@@ -461,10 +461,10 @@ Service providing access to NexusAuth methods.
 
 ## TypeScript Support
 
-All functions and decorators are fully typed. Import types from `@nexus-auth/core`:
+All functions and decorators are fully typed. Import types from `@nexusauth/core`:
 
 ```typescript
-import type { User, Session } from '@nexus-auth/core';
+import type { User, Session } from '@nexusauth/core';
 ```
 
 ## peerDependencies
@@ -472,7 +472,7 @@ import type { User, Session } from '@nexus-auth/core';
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*",
+    "@nexusauth/core": "workspace:*",
     "@nestjs/common": "^9.0.0 || ^10.0.0 || ^11.0.0",
     "@nestjs/core": "^9.0.0 || ^10.0.0 || ^11.0.0",
     "reflect-metadata": "^0.1.13 || ^0.2.0"

@@ -23,7 +23,7 @@ body:
       label: Steps to Reproduce
       description: Steps to reproduce the behavior
       placeholder: |
-        1. Install '@nexus-auth/core'
+        1. Install '@nexusauth/core'
         2. Configure with '...'
         3. Call method '...'
         4. See error
@@ -55,7 +55,7 @@ body:
       description: Minimal code example to reproduce the issue
       render: typescript
       placeholder: |
-        import { NexusAuth } from '@nexus-auth/core';
+        import { NexusAuth } from '@nexusauth/core';
 
         const auth = new NexusAuth({
           // your config
@@ -72,15 +72,15 @@ body:
       description: Which package(s) are affected?
       multiple: true
       options:
-        - "@nexus-auth/core"
-        - "@nexus-auth/typeorm-adapter"
-        - "@nexus-auth/prisma-adapter"
-        - "@nexus-auth/mongoose-adapter"
-        - "@nexus-auth/sql-adapter"
-        - "@nexus-auth/providers"
-        - "@nexus-auth/nextjs-helpers"
-        - "@nexus-auth/nestjs-helpers"
-        - "@nexus-auth/express-helpers"
+        - "@nexusauth/core"
+        - "@nexusauth/typeorm-adapter"
+        - "@nexusauth/prisma-adapter"
+        - "@nexusauth/mongoose-adapter"
+        - "@nexusauth/sql-adapter"
+        - "@nexusauth/providers"
+        - "@nexusauth/nextjs-helpers"
+        - "@nexusauth/nestjs-helpers"
+        - "@nexusauth/express-helpers"
     validations:
       required: true
 

@@ -19,7 +19,7 @@ El objetivo es tener un núcleo de autenticación (`core`) que sea completamente
 |  | PUERTO: `OAuthProvider`       |      | PUERTO: `BaseAdapter`         | |
 |  +-------------------------------+      +-------------------------------+ |
 |  |                                                                     | |
-|  |                         @nexus-auth/core                            | |
+|  |                         @nexusauth/core                            | |
 |  |                                                                     | |
 |  |     (Lógica de negocio de autenticación: sesiones, JWTs, OAuth)     | |
 |  |                                                                     | |
@@ -30,17 +30,17 @@ El objetivo es tener un núcleo de autenticación (`core`) que sea completamente
 
 ## Componentes Clave
 
-### 1. El Núcleo: `@nexus-auth/core`
+### 1. El Núcleo: `@nexusauth/core`
 
 -   **Responsabilidad:** Contiene toda la lógica de negocio agnóstica a la tecnología.
 -   **Los Puertos (Interfaces):** Define los contratos (`BaseAdapter`, `OAuthProvider`) que los componentes externos deben implementar.
 -   **Independencia:** No tiene dependencias de ningún ORM, base de datos o SDK externo.
 
-### 2. Los Adaptadores de Datos: `@nexus-auth/*-adapter`
+### 2. Los Adaptadores de Datos: `@nexusauth/*-adapter`
 
 -   **Responsabilidad:** Conectan el núcleo con una tecnología de base de datos específica, implementando la `interface BaseAdapter`.
 
-### 3. Los Proveedores OAuth: `@nexus-auth/*-provider`
+### 3. Los Proveedores OAuth: `@nexusauth/*-provider`
 
 -   **Responsabilidad:** Conectan el núcleo con un proveedor de OAuth específico, implementando la `interface OAuthProvider`.
 
@@ -64,6 +64,6 @@ Esta estrategia se aplica a todos los adaptadores y proveedores para mantener el
 
 ## Flujo de Uso (OAuth)
 
-1.  El usuario instala `@nexus-auth/core` y los adaptadores/proveedores que necesita.
+1.  El usuario instala `@nexusauth/core` y los adaptadores/proveedores que necesita.
 2.  En la configuración, pasa al núcleo una instancia del adaptador de datos y una lista de proveedores.
 3.  El núcleo orquesta el flujo de autenticación, hablando con las interfaces (`OAuthProvider`, `BaseAdapter`) sin conocer los detalles de la implementación final.

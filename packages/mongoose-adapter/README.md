@@ -1,4 +1,4 @@
-# @nexus-auth/mongoose-adapter
+# @nexusauth/mongoose-adapter
 
 Mongoose adapter for NexusAuth with support for schema mapping and custom schemas.
 
@@ -14,17 +14,17 @@ Mongoose adapter for NexusAuth with support for schema mapping and custom schema
 ## Installation
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/mongoose-adapter mongoose
+npm install @nexusauth/core @nexusauth/mongoose-adapter mongoose
 # or
-pnpm add @nexus-auth/core @nexus-auth/mongoose-adapter mongoose
+pnpm add @nexusauth/core @nexusauth/mongoose-adapter mongoose
 # or
-yarn add @nexus-auth/core @nexus-auth/mongoose-adapter mongoose
+yarn add @nexusauth/core @nexusauth/mongoose-adapter mongoose
 ```
 
 ## Requirements
 
 - `mongoose`: ^7.0.0 || ^8.0.0
-- `@nexus-auth/core`: workspace:*
+- `@nexusauth/core`: workspace:*
 
 ## Basic Usage
 
@@ -32,8 +32,8 @@ yarn add @nexus-auth/core @nexus-auth/mongoose-adapter mongoose
 
 ```typescript
 import mongoose from 'mongoose';
-import { NexusAuth } from '@nexus-auth/core';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 
 // Create connection
 const connection = await mongoose.createConnection(process.env.MONGO_URL!);
@@ -232,8 +232,8 @@ Creates a Mongoose adapter instance for NexusAuth.
 ```typescript
 import express from 'express';
 import mongoose from 'mongoose';
-import { NexusAuth } from '@nexus-auth/core';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 
 const app = express();
 const connection = await mongoose.createConnection(process.env.MONGO_URL!);
@@ -260,8 +260,8 @@ app.post('/api/auth/register', async (req, res) => {
 ```typescript
 // lib/auth.ts
 import mongoose from 'mongoose';
-import { NexusAuth } from '@nexus-auth/core';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
 
 let connection: mongoose.Connection;
 
@@ -279,9 +279,9 @@ export const auth = new NexusAuth({
 
 ```typescript
 import mongoose from 'mongoose';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
-import { NexusAuth } from '@nexus-auth/core';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { GoogleProvider } from '@nexusauth/providers';
 
 const connection = await mongoose.createConnection(process.env.MONGO_URL!);
 
@@ -309,7 +309,7 @@ const auth = new NexusAuth({
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*",
+    "@nexusauth/core": "workspace:*",
     "mongoose": "^7.0.0 || ^8.0.0"
   }
 }

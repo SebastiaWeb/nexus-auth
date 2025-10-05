@@ -21,15 +21,15 @@
 
 <!-- Mark all that apply -->
 
-- [ ] @nexus-auth/core
-- [ ] @nexus-auth/typeorm-adapter
-- [ ] @nexus-auth/prisma-adapter
-- [ ] @nexus-auth/mongoose-adapter
-- [ ] @nexus-auth/sql-adapter
-- [ ] @nexus-auth/providers
-- [ ] @nexus-auth/nextjs-helpers
-- [ ] @nexus-auth/nestjs-helpers
-- [ ] @nexus-auth/express-helpers
+- [ ] @nexusauth/core
+- [ ] @nexusauth/typeorm-adapter
+- [ ] @nexusauth/prisma-adapter
+- [ ] @nexusauth/mongoose-adapter
+- [ ] @nexusauth/sql-adapter
+- [ ] @nexusauth/providers
+- [ ] @nexusauth/nextjs-helpers
+- [ ] @nexusauth/nestjs-helpers
+- [ ] @nexusauth/express-helpers
 
 ## Related Issues
 

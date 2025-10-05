@@ -79,7 +79,7 @@ git commit -m "docs(api): update method signatures"
 ```
 
 Common scopes:
-- `core` - @nexus-auth/core
+- `core` - @nexusauth/core
 - `oauth` - OAuth providers
 - `adapters` - Database adapters
 - `helpers` - Framework helpers
@@ -335,7 +335,7 @@ pnpm publish -r --tag beta
 
 Users can install:
 ```bash
-npm install @nexus-auth/core@beta
+npm install @nexusauth/core@beta
 ```
 
 ---

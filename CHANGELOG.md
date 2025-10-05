@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### ✨ Features
 
-- **Core Package** - Initial release of @nexus-auth/core
+- **Core Package** - Initial release of @nexusauth/core
 - **Authentication Flows** - Email/password authentication with JWT
 - **Password Management** - Reset and verification flows
 - **Session Management** - JWT-based sessions with refresh tokens
@@ -14,15 +14,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 📦 Packages
 
-- `@nexus-auth/core` - Core authentication library
-- `@nexus-auth/typeorm-adapter` - TypeORM database adapter
-- `@nexus-auth/prisma-adapter` - Prisma database adapter
-- `@nexus-auth/mongoose-adapter` - MongoDB/Mongoose adapter
-- `@nexus-auth/sql-adapter` - Raw SQL adapter
-- `@nexus-auth/providers` - OAuth provider implementations
-- `@nexus-auth/nextjs-helpers` - Next.js integration helpers
-- `@nexus-auth/nestjs-helpers` - NestJS integration helpers
-- `@nexus-auth/express-helpers` - Express.js integration helpers
+- `@nexusauth/core` - Core authentication library
+- `@nexusauth/typeorm-adapter` - TypeORM database adapter
+- `@nexusauth/prisma-adapter` - Prisma database adapter
+- `@nexusauth/mongoose-adapter` - MongoDB/Mongoose adapter
+- `@nexusauth/sql-adapter` - Raw SQL adapter
+- `@nexusauth/providers` - OAuth provider implementations
+- `@nexusauth/nextjs-helpers` - Next.js integration helpers
+- `@nexusauth/nestjs-helpers` - NestJS integration helpers
+- `@nexusauth/express-helpers` - Express.js integration helpers
 
 ### 🎯 Unique Features
 

@@ -1,4 +1,4 @@
-# @nexus-auth/sql-adapter
+# @nexusauth/sql-adapter
 
 Raw SQL adapter for NexusAuth - Maximum flexibility for any SQL database.
 
@@ -8,14 +8,14 @@ Raw SQL adapter for NexusAuth - Maximum flexibility for any SQL database.
 - ✅ **No ORM Required**: Bring your own database client (pg, mysql2, better-sqlite3, etc.)
 - ✅ **Multi-Dialect Support**: PostgreSQL, MySQL, SQLite, MSSQL
 - ✅ **Schema Mapping**: Map to existing database schemas
-- ✅ **Zero Dependencies**: Only depends on @nexus-auth/core
+- ✅ **Zero Dependencies**: Only depends on @nexusauth/core
 - ✅ **Lightweight**: Minimal overhead, direct SQL execution
 - ✅ **Production Ready**: Full control over your queries
 
 ## Installation
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/sql-adapter
+npm install @nexusauth/core @nexusauth/sql-adapter
 # Plus your database client of choice
 npm install pg # PostgreSQL
 # or
@@ -26,7 +26,7 @@ npm install better-sqlite3 # SQLite
 
 ## Requirements
 
-- `@nexus-auth/core`: workspace:*
+- `@nexusauth/core`: workspace:*
 - A SQL database client of your choice (not a peerDependency - you choose!)
 
 ## Basic Usage
@@ -35,8 +35,8 @@ npm install better-sqlite3 # SQLite
 
 ```typescript
 import { Pool } from 'pg';
-import { NexusAuth } from '@nexus-auth/core';
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -58,8 +58,8 @@ const auth = new NexusAuth({
 
 ```typescript
 import mysql from 'mysql2/promise';
-import { NexusAuth } from '@nexus-auth/core';
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -84,8 +84,8 @@ const auth = new NexusAuth({
 
 ```typescript
 import Database from 'better-sqlite3';
-import { NexusAuth } from '@nexus-auth/core';
-import { SQLAdapter } from '@nexus-auth/sql-adapter';
+import { NexusAuth } from '@nexusauth/core';
+import { SQLAdapter } from '@nexusauth/sql-adapter';
 
 const db = new Database('auth.db');
 
@@ -383,7 +383,7 @@ Creates a Raw SQL adapter instance for NexusAuth.
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*"
+    "@nexusauth/core": "workspace:*"
   }
 }
 ```

@@ -1,4 +1,4 @@
-# @nexus-auth/providers
+# @nexusauth/providers
 
 OAuth provider factories for NexusAuth.
 
@@ -6,17 +6,17 @@ OAuth provider factories for NexusAuth.
 
 ```bash
 # Using pnpm
-pnpm add @nexus-auth/providers @nexus-auth/core
+pnpm add @nexusauth/providers @nexusauth/core
 
 # Using npm
-npm install @nexus-auth/providers @nexus-auth/core
+npm install @nexusauth/providers @nexusauth/core
 ```
 
 ## Usage
 
 ```typescript
-import { NexusAuth } from '@nexus-auth/core';
-import { GoogleProvider, GitHubProvider, FacebookProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { GoogleProvider, GitHubProvider, FacebookProvider } from '@nexusauth/providers';
 
 const auth = new NexusAuth({
   adapter: yourAdapter,
@@ -110,10 +110,10 @@ console.log(isNewUser); // true if user was just created
 
 ## Creating Custom Providers
 
-You can create custom OAuth providers using the `OAuth2Provider` class from `@nexus-auth/core`:
+You can create custom OAuth providers using the `OAuth2Provider` class from `@nexusauth/core`:
 
 ```typescript
-import { OAuth2Provider } from '@nexus-auth/core';
+import { OAuth2Provider } from '@nexusauth/core';
 
 function MyCustomProvider(config: { clientId: string; clientSecret: string }) {
   return new OAuth2Provider(

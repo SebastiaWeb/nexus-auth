@@ -36,7 +36,7 @@ body:
       description: Share relevant code if applicable
       render: typescript
       placeholder: |
-        import { NexusAuth } from '@nexus-auth/core';
+        import { NexusAuth } from '@nexusauth/core';
 
         // Your code here
     validations:
@@ -49,15 +49,15 @@ body:
       description: Which package(s) is this question about?
       multiple: true
       options:
-        - "@nexus-auth/core"
-        - "@nexus-auth/typeorm-adapter"
-        - "@nexus-auth/prisma-adapter"
-        - "@nexus-auth/mongoose-adapter"
-        - "@nexus-auth/sql-adapter"
-        - "@nexus-auth/providers"
-        - "@nexus-auth/nextjs-helpers"
-        - "@nexus-auth/nestjs-helpers"
-        - "@nexus-auth/express-helpers"
+        - "@nexusauth/core"
+        - "@nexusauth/typeorm-adapter"
+        - "@nexusauth/prisma-adapter"
+        - "@nexusauth/mongoose-adapter"
+        - "@nexusauth/sql-adapter"
+        - "@nexusauth/providers"
+        - "@nexusauth/nextjs-helpers"
+        - "@nexusauth/nestjs-helpers"
+        - "@nexusauth/express-helpers"
         - "General usage"
     validations:
       required: false

@@ -144,7 +144,7 @@ All core types are centralized in `packages/core/src/lib/types.ts`. Never duplic
 
 ```typescript
 // ✅ Correct
-import { User, BaseAdapter } from '@nexus-auth/core';
+import { User, BaseAdapter } from '@nexusauth/core';
 
 // ❌ Wrong - Don't redefine types
 interface User {

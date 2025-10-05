@@ -1,10 +1,10 @@
-# @nexus-auth/typeorm-adapter
+# @nexusauth/typeorm-adapter
 
 This library is the official TypeORM adapter for `nexus-auth`.
 
 ## Building
 
-Run `nx build @nexus-auth/typeorm-adapter` to build the library.
+Run `nx build @nexusauth/typeorm-adapter` to build the library.
 
 ## Usage
 
@@ -13,8 +13,8 @@ To use this adapter, you need to pass it to the `NexusAuth` core constructor. Yo
 ### Basic Configuration
 
 ```typescript
-import { NexusAuth } from "@nexus-auth/core";
-import { TypeORMAdapter } from "@nexus-auth/typeorm-adapter";
+import { NexusAuth } from "@nexusauth/core";
+import { TypeORMAdapter } from "@nexusauth/typeorm-adapter";
 
 const auth = new NexusAuth({
   adapter: TypeORMAdapter({
@@ -32,10 +32,10 @@ const auth = new NexusAuth({
 
 ### Custom Entities
 
-You can provide your own entities to override the default ones. Your custom entities must implement the corresponding interfaces from `@nexus-auth/core`.
+You can provide your own entities to override the default ones. Your custom entities must implement the corresponding interfaces from `@nexusauth/core`.
 
 ```typescript
-import { TypeORMAdapter } from "@nexus-auth/typeorm-adapter";
+import { TypeORMAdapter } from "@nexusauth/typeorm-adapter";
 import { UserEntity } from "./my-entities"; // Your custom entity
 
 const adapter = TypeORMAdapter({
@@ -60,7 +60,7 @@ Create a file named `data-source.ts` (or similar) in the root of your project. T
 ```typescript
 // data-source.ts
 import { DataSource, DataSourceOptions } from "typeorm";
-import { UserEntity, AccountEntity, SessionEntity } from "@nexus-auth/typeorm-adapter/entities";
+import { UserEntity, AccountEntity, SessionEntity } from "@nexusauth/typeorm-adapter/entities";
 
 // If you have custom entities, import them instead
 // import { MyUserEntity } from './path/to/your/entities';
@@ -114,4 +114,4 @@ Run the migration to apply the changes to your database.
 npm run typeorm migration:run
 ```
 
-Your database is now set up with the required tables for `@nexus-auth/typeorm-adapter`.
+Your database is now set up with the required tables for `@nexusauth/typeorm-adapter`.

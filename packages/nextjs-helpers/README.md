@@ -1,4 +1,4 @@
-# @nexus-auth/nextjs-helpers
+# @nexusauth/nextjs-helpers
 
 Next.js helpers for NexusAuth - Support for both App Router and Pages Router.
 
@@ -14,12 +14,12 @@ Next.js helpers for NexusAuth - Support for both App Router and Pages Router.
 ## Installation
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/nextjs-helpers next
+npm install @nexusauth/core @nexusauth/nextjs-helpers next
 ```
 
 ## Requirements
 
-- `@nexus-auth/core`: workspace:*
+- `@nexusauth/core`: workspace:*
 - `next`: ^13.0.0 || ^14.0.0 || ^15.0.0
 
 ## App Router Usage
@@ -29,7 +29,7 @@ npm install @nexus-auth/core @nexus-auth/nextjs-helpers next
 ```typescript
 // app/dashboard/page.tsx
 import { auth } from '@/auth';
-import { getSession, getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getSession, getCurrentUser } from '@nexusauth/nextjs-helpers';
 
 export default async function DashboardPage() {
   // Get full session
@@ -53,7 +53,7 @@ export default async function DashboardPage() {
 ```typescript
 // app/admin/page.tsx
 import { auth } from '@/auth';
-import { requireAuth } from '@nexus-auth/nextjs-helpers';
+import { requireAuth } from '@nexusauth/nextjs-helpers';
 
 export default async function AdminPage() {
   // Throws error if not authenticated
@@ -70,7 +70,7 @@ export default async function AdminPage() {
 'use server';
 
 import { auth } from '@/auth';
-import { getCurrentUser, signOut } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser, signOut } from '@nexusauth/nextjs-helpers';
 
 export async function updateProfile(data: FormData) {
   const user = await getCurrentUser(auth);
@@ -90,7 +90,7 @@ export async function handleSignOut() {
 ```typescript
 // app/api/user/route.ts
 import { auth } from '@/auth';
-import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser } from '@nexusauth/nextjs-helpers';
 
 export async function GET() {
   const user = await getCurrentUser(auth);
@@ -110,7 +110,7 @@ export async function GET() {
 ```typescript
 // pages/profile.tsx
 import { auth } from '@/auth';
-import { getSessionFromReq, getCurrentUserFromReq } from '@nexus-auth/nextjs-helpers';
+import { getSessionFromReq, getCurrentUserFromReq } from '@nexusauth/nextjs-helpers';
 
 export const getServerSideProps = async (ctx) => {
   // Get session
@@ -135,7 +135,7 @@ export default function ProfilePage({ user }) {
 ```typescript
 // pages/dashboard.tsx
 import { auth } from '@/auth';
-import { withAuthSSR } from '@nexus-auth/nextjs-helpers';
+import { withAuthSSR } from '@nexusauth/nextjs-helpers';
 
 export const getServerSideProps = withAuthSSR(auth, async (ctx, user) => {
   // User is guaranteed to exist
@@ -154,7 +154,7 @@ export default function DashboardPage({ user }) {
 ```typescript
 // pages/api/protected.ts
 import { auth } from '@/auth';
-import { withAuth } from '@nexus-auth/nextjs-helpers';
+import { withAuth } from '@nexusauth/nextjs-helpers';
 
 export default withAuth(auth, async (req, res, user) => {
   // User is guaranteed to exist
@@ -167,7 +167,7 @@ export default withAuth(auth, async (req, res, user) => {
 ```typescript
 // pages/api/auth/signout.ts
 import { auth } from '@/auth';
-import { handleSignOut } from '@nexus-auth/nextjs-helpers';
+import { handleSignOut } from '@nexusauth/nextjs-helpers';
 
 export default async function handler(req, res) {
   await handleSignOut(auth, req, res);
@@ -182,7 +182,7 @@ export default async function handler(req, res) {
 ```typescript
 // middleware.ts
 import { auth } from '@/auth';
-import { createAuthMiddleware } from '@nexus-auth/nextjs-helpers';
+import { createAuthMiddleware } from '@nexusauth/nextjs-helpers';
 
 export const middleware = createAuthMiddleware(auth, {
   publicRoutes: ['/', '/login', '/register'],
@@ -203,7 +203,7 @@ export const config = {
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { auth } from '@/auth';
-import { getSessionFromMiddleware } from '@nexus-auth/nextjs-helpers';
+import { getSessionFromMiddleware } from '@nexusauth/nextjs-helpers';
 
 export async function middleware(request: NextRequest) {
   const session = await getSessionFromMiddleware(auth, request);
@@ -234,9 +234,9 @@ export const config = {
 
 ```typescript
 // auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -258,7 +258,7 @@ export const auth = new NexusAuth({
 ```typescript
 // app/dashboard/page.tsx
 import { auth } from '@/auth';
-import { requireAuth } from '@nexus-auth/nextjs-helpers';
+import { requireAuth } from '@nexusauth/nextjs-helpers';
 
 export default async function DashboardPage() {
   const user = await requireAuth(auth);
@@ -279,7 +279,7 @@ export default async function DashboardPage() {
 'use server';
 
 import { auth } from '@/auth';
-import { getCurrentUser } from '@nexus-auth/nextjs-helpers';
+import { getCurrentUser } from '@nexusauth/nextjs-helpers';
 import { revalidatePath } from 'next/cache';
 
 export async function updateName(formData: FormData) {
@@ -302,7 +302,7 @@ export async function updateName(formData: FormData) {
 ```typescript
 // pages/settings.tsx
 import { auth } from '@/auth';
-import { withAuthSSR } from '@nexus-auth/nextjs-helpers';
+import { withAuthSSR } from '@nexusauth/nextjs-helpers';
 
 export const getServerSideProps = withAuthSSR(auth, async (ctx, user) => {
   return {
@@ -327,7 +327,7 @@ export default function SettingsPage({ user }) {
 ```typescript
 // pages/api/me.ts
 import { auth } from '@/auth';
-import { withAuth } from '@nexus-auth/nextjs-helpers';
+import { withAuth } from '@nexusauth/nextjs-helpers';
 
 export default withAuth(auth, async (req, res, user) => {
   res.json({
@@ -452,10 +452,10 @@ const session = await getSessionFromMiddleware(auth, request);
 
 ## TypeScript Support
 
-All functions are fully typed. Import types from `@nexus-auth/core`:
+All functions are fully typed. Import types from `@nexusauth/core`:
 
 ```typescript
-import type { User, Session } from '@nexus-auth/core';
+import type { User, Session } from '@nexusauth/core';
 ```
 
 ## peerDependencies
@@ -463,7 +463,7 @@ import type { User, Session } from '@nexus-auth/core';
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*",
+    "@nexusauth/core": "workspace:*",
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0"
   }
 }

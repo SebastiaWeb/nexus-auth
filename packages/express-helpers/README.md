@@ -1,4 +1,4 @@
-# @nexus-auth/express-helpers
+# @nexusauth/express-helpers
 
 Express middleware for NexusAuth - Optimized and flexible authentication middleware.
 
@@ -14,12 +14,12 @@ Express middleware for NexusAuth - Optimized and flexible authentication middlew
 ## Installation
 
 ```bash
-npm install @nexus-auth/core @nexus-auth/express-helpers express cookie-parser
+npm install @nexusauth/core @nexusauth/express-helpers express cookie-parser
 ```
 
 ## Requirements
 
-- `@nexus-auth/core`: workspace:*
+- `@nexusauth/core`: workspace:*
 - `express`: ^4.0.0 || ^5.0.0
 - `cookie-parser`: For reading session cookies
 
@@ -29,7 +29,7 @@ npm install @nexus-auth/core @nexus-auth/express-helpers express cookie-parser
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import { auth } from './auth';
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 
 const app = express();
 
@@ -53,7 +53,7 @@ app.listen(3000);
 Protect all routes with required authentication:
 
 ```typescript
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 
 // All routes after this require authentication
 app.use(createAuthMiddleware(auth));
@@ -68,7 +68,7 @@ app.get('/dashboard', (req, res) => {
 Protect specific routes:
 
 ```typescript
-import { requireAuth } from '@nexus-auth/express-helpers';
+import { requireAuth } from '@nexusauth/express-helpers';
 
 app.get('/profile', requireAuth(auth), (req, res) => {
   res.json({ user: req.user });
@@ -80,7 +80,7 @@ app.get('/profile', requireAuth(auth), (req, res) => {
 Attach user if present but don't block unauthenticated requests:
 
 ```typescript
-import { optionalAuth } from '@nexus-auth/express-helpers';
+import { optionalAuth } from '@nexusauth/express-helpers';
 
 app.get('/home', optionalAuth(auth), (req, res) => {
   if (req.user) {
@@ -96,7 +96,7 @@ app.get('/home', optionalAuth(auth), (req, res) => {
 Extract user and session from request:
 
 ```typescript
-import { requireAuth, getCurrentUser, getCurrentSession } from '@nexus-auth/express-helpers';
+import { requireAuth, getCurrentUser, getCurrentSession } from '@nexusauth/express-helpers';
 
 app.get('/me', requireAuth(auth), (req, res) => {
   const user = getCurrentUser(req);
@@ -114,7 +114,7 @@ app.get('/me', requireAuth(auth), (req, res) => {
 Handle user sign out:
 
 ```typescript
-import { requireAuth, signOut } from '@nexus-auth/express-helpers';
+import { requireAuth, signOut } from '@nexusauth/express-helpers';
 
 app.post('/logout', requireAuth(auth), async (req, res) => {
   await signOut(auth, req, res);
@@ -127,7 +127,7 @@ app.post('/logout', requireAuth(auth), async (req, res) => {
 ### Custom Error Handlers
 
 ```typescript
-import { createAuthMiddleware } from '@nexus-auth/express-helpers';
+import { createAuthMiddleware } from '@nexusauth/express-helpers';
 
 app.use(
   createAuthMiddleware(auth, {
@@ -150,7 +150,7 @@ app.use(
 Mix protected and public routes:
 
 ```typescript
-import { requireAuth, optionalAuth } from '@nexus-auth/express-helpers';
+import { requireAuth, optionalAuth } from '@nexusauth/express-helpers';
 
 // Public route
 app.get('/public', (req, res) => {
@@ -176,9 +176,9 @@ app.get('/dashboard', requireAuth(auth), (req, res) => {
 
 ```typescript
 // auth.ts
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -207,7 +207,7 @@ import {
   optionalAuth,
   getCurrentUser,
   signOut,
-} from '@nexus-auth/express-helpers';
+} from '@nexusauth/express-helpers';
 
 const app = express();
 
@@ -277,7 +277,7 @@ app.listen(3000, () => {
 ```typescript
 // routes/users.ts
 import { Router } from 'express';
-import { requireAuth, getCurrentUser } from '@nexus-auth/express-helpers';
+import { requireAuth, getCurrentUser } from '@nexusauth/express-helpers';
 import { auth } from '../auth';
 
 const router = Router();
@@ -396,7 +396,7 @@ app.get('/profile', requireAuth(auth), (req: Request, res) => {
 ```json
 {
   "peerDependencies": {
-    "@nexus-auth/core": "workspace:*",
+    "@nexusauth/core": "workspace:*",
     "express": "^4.0.0 || ^5.0.0"
   }
 }
