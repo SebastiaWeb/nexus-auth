@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/core
+ * @module @nexusauth/core
  */
 
 /**

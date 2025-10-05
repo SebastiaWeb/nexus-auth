@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/providers
+ * @module @nexusauth/providers
  * Microsoft OAuth Provider
  */
 

@@ -1,5 +1,5 @@
 /**
- * Welcome to @nexus-auth/core!
+ * Welcome to @nexusauth/core!
  *
  * This is the main entry point of the package.
  * It exports the main NexusAuth class and all the core types.

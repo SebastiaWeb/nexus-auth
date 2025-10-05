@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/nextjs-helpers
+ * @module @nexusauth/nextjs-helpers
  * Next.js App Router Helpers
  */
 

@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/express-helpers
+ * @module @nexusauth/express-helpers
  * Express Helpers for NexusAuth
  */
 

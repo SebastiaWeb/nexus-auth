@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/core
+ * @module @nexusauth/core
  * 
  * This file is the single source of truth for all core data models and interfaces.
  * All types exported from the root of the package should be defined here.

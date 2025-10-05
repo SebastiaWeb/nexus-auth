@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/nestjs-helpers
+ * @module @nexusauth/nestjs-helpers
  * NestJS Module for NexusAuth
  */
 

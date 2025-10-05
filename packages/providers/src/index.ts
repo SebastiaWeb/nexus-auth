@@ -1,5 +1,5 @@
 /**
- * @module @nexus-auth/providers
+ * @module @nexusauth/providers
  * OAuth Provider Factories for NexusAuth
  */
 
