@@ -1,6 +1,6 @@
 import { Controller, Get, Put, Body, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
-import { NexusAuthGuard, CurrentUser, CurrentUserId } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthGuard, CurrentUser, CurrentUserId } from '@nexusauth/nestjs-helpers';
 import { UsersService } from './users.service';
 
 @ApiTags('users')

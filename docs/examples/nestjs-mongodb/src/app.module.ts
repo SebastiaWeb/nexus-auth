@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { NexusAuthModule } from '@nexus-auth/nestjs-helpers';
-import { MongooseAdapter } from '@nexus-auth/mongoose-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuthModule } from '@nexusauth/nestjs-helpers';
+import { MongooseAdapter } from '@nexusauth/mongoose-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { User, UserSchema } from './users/schemas/user.schema';

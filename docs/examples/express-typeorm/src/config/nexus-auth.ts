@@ -1,6 +1,6 @@
-import { NexusAuth } from '@nexus-auth/core';
-import { TypeORMAdapter } from '@nexus-auth/typeorm-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { TypeORMAdapter } from '@nexusauth/typeorm-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { AppDataSource } from './database';
 import { User, Account, Session, VerificationToken } from '../entities';
 import { sendEmail } from '../utils/email';

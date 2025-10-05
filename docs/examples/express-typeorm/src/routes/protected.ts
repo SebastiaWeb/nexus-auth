@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { authenticate } from '../middleware/authenticate';
-import { getCurrentUser, getCurrentSession } from '@nexus-auth/express-helpers';
+import { getCurrentUser, getCurrentSession } from '@nexusauth/express-helpers';
 import { nexusAuth } from '../config/nexus-auth';
 import { AppDataSource } from '../config/database';
 import { User } from '../entities';

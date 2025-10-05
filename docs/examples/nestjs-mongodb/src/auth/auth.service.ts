@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { NexusAuthService } from '@nexus-auth/nestjs-helpers';
+import { NexusAuthService } from '@nexusauth/nestjs-helpers';
 import { SignupDto } from './dto/signup.dto';
 import { SigninDto } from './dto/signin.dto';
 

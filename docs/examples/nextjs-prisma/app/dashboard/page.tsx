@@ -1,4 +1,4 @@
-import { getSession } from '@nexus-auth/nextjs-helpers';
+import { getSession } from '@nexusauth/nextjs-helpers';
 import { nexusAuth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';

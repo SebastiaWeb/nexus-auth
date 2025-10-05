@@ -1,6 +1,6 @@
-import { NexusAuth } from '@nexus-auth/core';
-import { PrismaAdapter } from '@nexus-auth/prisma-adapter';
-import { GoogleProvider } from '@nexus-auth/providers';
+import { NexusAuth } from '@nexusauth/core';
+import { PrismaAdapter } from '@nexusauth/prisma-adapter';
+import { GoogleProvider } from '@nexusauth/providers';
 import { prisma } from './prisma';
 
 export const nexusAuth = NexusAuth({
