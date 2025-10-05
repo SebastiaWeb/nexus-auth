@@ -1,10 +1,10 @@
 blank_issues_enabled: false
 contact_links:
   - name: 📚 Documentation
-    url: https://github.com/yourusername/nexus-auth#readme
+    url: https://github.com/SebastiaWeb/nexus-auth#readme
     about: Check our documentation for answers to common questions
   - name: 💬 GitHub Discussions
-    url: https://github.com/yourusername/nexus-auth/discussions
+    url: https://github.com/SebastiaWeb/nexus-auth/discussions
     about: Ask questions and discuss ideas with the community
   - name: 🔍 Stack Overflow
     url: https://stackoverflow.com/questions/tagged/nexus-auth

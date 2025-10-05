@@ -7,9 +7,9 @@ body:
     attributes:
       value: |
         👋 Before asking a question, please:
-        - Check the [documentation](https://github.com/yourusername/nexus-auth#readme)
-        - Search [existing issues](https://github.com/yourusername/nexus-auth/issues)
-        - Check [discussions](https://github.com/yourusername/nexus-auth/discussions)
+        - Check the [documentation](https://github.com/SebastiaWeb/nexus-auth#readme)
+        - Search [existing issues](https://github.com/SebastiaWeb/nexus-auth/issues)
+        - Check [discussions](https://github.com/SebastiaWeb/nexus-auth/discussions)
 
   - type: textarea
     id: question

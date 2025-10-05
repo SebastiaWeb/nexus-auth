@@ -15,7 +15,7 @@ Before asking for help, please check our documentation:
 
 ### GitHub Discussions
 
-For questions, ideas, and community discussions, use [GitHub Discussions](https://github.com/yourusername/nexus-auth/discussions):
+For questions, ideas, and community discussions, use [GitHub Discussions](https://github.com/SebastiaWeb/nexus-auth/discussions):
 
 - **Q&A**: Ask and answer questions
 - **Ideas**: Share and discuss feature ideas
@@ -36,7 +36,7 @@ When asking questions:
 
 ## 🐛 Bug Reports
 
-Found a bug? Please report it on our [issue tracker](https://github.com/yourusername/nexus-auth/issues/new/choose).
+Found a bug? Please report it on our [issue tracker](https://github.com/SebastiaWeb/nexus-auth/issues/new/choose).
 
 Use the bug report template and include:
 - Clear description
@@ -49,9 +49,9 @@ Use the bug report template and include:
 
 Have an idea for a new feature? We'd love to hear it!
 
-- **New features**: Use the [feature request template](https://github.com/yourusername/nexus-auth/issues/new?template=feature_request.yml)
-- **New adapters**: Use the [adapter request template](https://github.com/yourusername/nexus-auth/issues/new?template=adapter_request.yml)
-- **New providers**: Use the [provider request template](https://github.com/yourusername/nexus-auth/issues/new?template=provider_request.yml)
+- **New features**: Use the [feature request template](https://github.com/SebastiaWeb/nexus-auth/issues/new?template=feature_request.yml)
+- **New adapters**: Use the [adapter request template](https://github.com/SebastiaWeb/nexus-auth/issues/new?template=adapter_request.yml)
+- **New providers**: Use the [provider request template](https://github.com/SebastiaWeb/nexus-auth/issues/new?template=provider_request.yml)
 
 ## 🔒 Security Issues
 

@@ -249,7 +249,7 @@ pnpm audit fix
 
 Security advisories will be published on:
 
-- [GitHub Security Advisories](https://github.com/yourusername/nexus-auth/security/advisories)
+- [GitHub Security Advisories](https://github.com/SebastiaWeb/nexus-auth/security/advisories)
 - npm advisory database
 - Release notes
 
@@ -264,7 +264,7 @@ We currently do not have a bug bounty program. However, we greatly appreciate re
 If you have questions about security that aren't related to vulnerabilities, please:
 
 - Check our [security documentation](./docs/security.md)
-- Ask in [GitHub Discussions](https://github.com/yourusername/nexus-auth/discussions)
+- Ask in [GitHub Discussions](https://github.com/SebastiaWeb/nexus-auth/discussions)
 - Email us at security@nexus-auth.dev
 
 ## Attribution

@@ -29,7 +29,7 @@ body:
     attributes:
       label: Documentation Location
       description: Where is the documentation issue? (URL or file path)
-      placeholder: "https://github.com/yourusername/nexus-auth/blob/main/README.md or packages/core/README.md"
+      placeholder: "https://github.com/SebastiaWeb/nexus-auth/blob/main/README.md or packages/core/README.md"
     validations:
       required: true
 

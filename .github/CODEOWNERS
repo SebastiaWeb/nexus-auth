@@ -3,46 +3,46 @@
 # See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Global owners - will be requested for review on all PRs unless a more specific rule applies
-* @yourusername
+* @SebastiaWeb
 
 # Core Package
-/packages/core/ @yourusername
+/packages/core/ @SebastiaWeb
 
 # Database Adapters
-/packages/typeorm-adapter/ @yourusername
-/packages/prisma-adapter/ @yourusername
-/packages/mongoose-adapter/ @yourusername
-/packages/sql-adapter/ @yourusername
+/packages/typeorm-adapter/ @SebastiaWeb
+/packages/prisma-adapter/ @SebastiaWeb
+/packages/mongoose-adapter/ @SebastiaWeb
+/packages/sql-adapter/ @SebastiaWeb
 
 # OAuth Providers
-/packages/providers/ @yourusername
+/packages/providers/ @SebastiaWeb
 
 # Framework Helpers
-/packages/nextjs-helpers/ @yourusername
-/packages/nestjs-helpers/ @yourusername
-/packages/express-helpers/ @yourusername
+/packages/nextjs-helpers/ @SebastiaWeb
+/packages/nestjs-helpers/ @SebastiaWeb
+/packages/express-helpers/ @SebastiaWeb
 
 # Documentation
-/docs/ @yourusername
-/guides/ @yourusername
-*.md @yourusername
+/docs/ @SebastiaWeb
+/guides/ @SebastiaWeb
+*.md @SebastiaWeb
 
 # Configuration Files
-/package.json @yourusername
-/pnpm-workspace.yaml @yourusername
-/nx.json @yourusername
-/tsconfig*.json @yourusername
+/package.json @SebastiaWeb
+/pnpm-workspace.yaml @SebastiaWeb
+/nx.json @SebastiaWeb
+/tsconfig*.json @SebastiaWeb
 
 # CI/CD
-/.github/workflows/ @yourusername
-/.github/actions/ @yourusername
+/.github/workflows/ @SebastiaWeb
+/.github/actions/ @SebastiaWeb
 
 # Security
-/SECURITY.md @yourusername
-/.github/SECURITY.md @yourusername
+/SECURITY.md @SebastiaWeb
+/.github/SECURITY.md @SebastiaWeb
 
 # Build and Release
-/scripts/ @yourusername
-/.releaserc.json @yourusername
-/.versionrc.json @yourusername
-/commitlint.config.js @yourusername
+/scripts/ @SebastiaWeb
+/.releaserc.json @SebastiaWeb
+/.versionrc.json @SebastiaWeb
+/commitlint.config.js @SebastiaWeb
