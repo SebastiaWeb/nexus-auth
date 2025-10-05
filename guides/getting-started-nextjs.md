@@ -131,8 +131,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const adapter = new PrismaAdapter({
-  prisma,
+const adapter = new PrismaAdapter({ client: prisma }, {
   // Optional: Custom field mapping
   mapping: {
     user: {
@@ -150,10 +149,7 @@ const adapter = new PrismaAdapter({
 
 export const auth = new NexusAuth({
   adapter,
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-    expiresIn: '7d'
-  },
+  secret: process.env.JWT_SECRET!,
   session: {
     strategy: 'jwt',
     updateAge: 86400

@@ -109,10 +109,7 @@ import { AuthService } from './auth.service';
 
         return {
           adapter,
-          jwt: {
-            secret: process.env.JWT_SECRET || 'your-secret-key',
-            expiresIn: '7d',
-          },
+          secret: process.env.JWT_SECRET || 'your-secret-key',
           session: {
             strategy: 'jwt',
             updateAge: 86400, // 24 hours
@@ -310,10 +307,7 @@ import { GoogleProvider } from '@nexusauth/providers';
 
         return {
           adapter,
-          jwt: {
-            secret: process.env.JWT_SECRET!,
-            expiresIn: '7d',
-          },
+          secret: process.env.JWT_SECRET!,
           providers: [
             new GoogleProvider({
               clientId: process.env.GOOGLE_CLIENT_ID!,

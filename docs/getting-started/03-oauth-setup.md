@@ -226,7 +226,7 @@ NexusAuth vincula automáticamente cuentas OAuth con usuarios existentes si el *
 
 ```typescript
 // Usuario se registra con email
-await nexusAuth.createUser({ email: 'user@example.com', password: '...' });
+await nexusAuth.register({ email: 'user@example.com', password: '...' });
 
 // Luego inicia sesión con Google (mismo email)
 // NexusAuth vincula automáticamente la cuenta de Google al usuario existente

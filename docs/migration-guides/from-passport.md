@@ -236,9 +236,7 @@ export const nexusAuth = NexusAuth({
     maxAge: 7 * 24 * 60 * 60, // 7 días
   },
 
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-  },
+  secret: process.env.JWT_SECRET!,
 
   callbacks: {
     async jwt({ token, user }) {
@@ -261,7 +259,7 @@ const router = express.Router();
 // Signup
 router.post('/signup', async (req, res) => {
   try {
-    const user = await nexusAuth.createUser(req.body);
+    const user = await nexusAuth.register(req.body);
     res.json({ success: true, user });
   } catch (error: any) {
     res.status(400).json({ error: error.message });
@@ -271,7 +269,7 @@ router.post('/signup', async (req, res) => {
 // Login
 router.post('/login', async (req, res) => {
   try {
-    const result = await nexusAuth.signIn('credentials', req.body);
+    const result = await nexusAuth.signIn(req.body);
     res.json(result);
   } catch (error: any) {
     res.status(401).json({ error: error.message });
@@ -419,7 +417,7 @@ router.post('/login', passport.authenticate('local', { session: false }), (req, 
 // Signup automático
 router.post('/signup', async (req, res) => {
   try {
-    const user = await nexusAuth.createUser(req.body);
+    const user = await nexusAuth.register(req.body);
     res.json({ success: true, user });
   } catch (error: any) {
     res.status(400).json({ error: error.message });
@@ -429,7 +427,7 @@ router.post('/signup', async (req, res) => {
 // Login automático
 router.post('/login', async (req, res) => {
   try {
-    const result = await nexusAuth.signIn('credentials', req.body);
+    const result = await nexusAuth.signIn(req.body);
     res.json(result);
   } catch (error: any) {
     res.status(401).json({ error: error.message });
@@ -573,7 +571,7 @@ await nexusAuth.resetPassword(token, 'newPassword123');
 
 ```typescript
 // Generar token de verificación
-const token = await nexusAuth.createVerificationToken('user@example.com');
+const token = await nexusAuth.sendVerificationEmail('user@example.com');
 
 // Verificar email
 await nexusAuth.verifyEmail(token);
@@ -586,7 +584,7 @@ await nexusAuth.verifyEmail(token);
 **NexusAuth**: Built-in
 
 ```typescript
-const result = await nexusAuth.signIn('credentials', { email, password });
+const result = await nexusAuth.signIn({ email, password });
 
 // Automáticamente retorna:
 // - accessToken (corta duración)

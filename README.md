@@ -28,7 +28,7 @@ import { NexusAuth } from '@nexusauth/core';
 import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 
 const auth = new NexusAuth({
-  adapter: new PrismaAdapter(prisma),
+  adapter: new PrismaAdapter({ client: prisma }),
   secret: process.env.AUTH_SECRET,
 });
 
@@ -130,7 +130,7 @@ import { GoogleProvider } from '@nexusauth/providers';
 import { prisma } from './prisma';
 
 export const auth = new NexusAuth({
-  adapter: new PrismaAdapter(prisma),
+  adapter: new PrismaAdapter({ client: prisma }),
   secret: process.env.AUTH_SECRET!,
   oauth: {
     providers: [

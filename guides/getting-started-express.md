@@ -103,10 +103,7 @@ import { NexusAuth } from '@nexusauth/core';
 
 const auth = new NexusAuth({
   adapter,
-  jwt: {
-    secret: process.env.JWT_SECRET || 'your-secret-key',
-    expiresIn: '7d'
-  },
+  secret: process.env.JWT_SECRET || 'your-secret-key',
   session: {
     strategy: 'jwt',
     updateAge: 86400 // 24 hours

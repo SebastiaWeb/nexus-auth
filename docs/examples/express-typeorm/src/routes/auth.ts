@@ -18,7 +18,7 @@ router.post('/signup', signupLimiter, async (req, res) => {
   try {
     const data = signupSchema.parse(req.body);
 
-    const user = await nexusAuth.createUser(data);
+    const { user, token } = await nexusAuth.register(data);
 
     res.status(201).json({
       success: true,
@@ -27,6 +27,7 @@ router.post('/signup', signupLimiter, async (req, res) => {
         email: user.email,
         name: user.name,
       },
+      token,
     });
   } catch (error: any) {
     if (error.name === 'ZodError') {
@@ -41,7 +42,7 @@ router.post('/signin', loginLimiter, async (req, res) => {
   try {
     const data = signinSchema.parse(req.body);
 
-    const result = await nexusAuth.signIn('credentials', data);
+    const result = await nexusAuth.signIn(data);
 
     res.json(result);
   } catch (error: any) {

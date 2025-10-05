@@ -78,9 +78,7 @@ export const nexusAuth = NexusAuth({
     maxAge: 30 * 24 * 60 * 60, // 30 días
   },
 
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-  },
+  secret: process.env.JWT_SECRET!,
 
   callbacks: {
     async jwt({ token, user }) {
@@ -123,7 +121,7 @@ async function bootstrap() {
     try {
       const { email, password, name } = req.body;
 
-      const user = await nexusAuth.createUser({
+      const user = await nexusAuth.register({
         email,
         password,
         name,
@@ -139,7 +137,7 @@ async function bootstrap() {
     try {
       const { email, password } = req.body;
 
-      const result = await nexusAuth.signIn('credentials', {
+      const result = await nexusAuth.signIn({
         email,
         password,
       });

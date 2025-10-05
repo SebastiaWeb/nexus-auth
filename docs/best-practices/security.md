@@ -20,9 +20,7 @@ export const nexusAuth = NexusAuth({
 
 ```typescript
 export const nexusAuth = NexusAuth({
-  jwt: {
-    secret: process.env.JWT_SECRET!, // ✅ Desde variable de entorno
-  },
+  secret: process.env.JWT_SECRET!, // ✅ Desde variable de entorno
 });
 ```
 
@@ -73,10 +71,7 @@ export const nexusAuth = NexusAuth({
     maxAge: 30 * 24 * 60 * 60, // 30 días ⚠️ Demasiado largo
   },
 
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-    expiresIn: '15m', // ✅ Access token corto
-  },
+  secret: process.env.JWT_SECRET!,
 
   refreshToken: {
     enabled: true,
@@ -221,7 +216,7 @@ router.post('/auth/signup', async (req, res) => {
     // ✅ Validar input
     const data = signupSchema.parse(req.body);
 
-    const user = await nexusAuth.createUser(data);
+    const user = await nexusAuth.register(data);
     res.json({ success: true, user });
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -267,7 +262,7 @@ export const nexusAuth = NexusAuth({
   events: {
     async createUser({ user }) {
       // Enviar email de verificación
-      const token = await nexusAuth.createVerificationToken(user.email);
+      const token = await nexusAuth.sendVerificationEmail(user.email);
 
       await sendEmail({
         to: user.email,
@@ -358,7 +353,7 @@ router.post('/auth/signin', async (req, res) => {
   }
 
   try {
-    const result = await nexusAuth.signIn('credentials', { email, password });
+    const result = await nexusAuth.signIn({ email, password });
 
     // Resetear intentos fallidos
     await redis.del(`login_attempts:${email}`);
@@ -393,7 +388,7 @@ router.post('/auth/signup', async (req, res) => {
   // ✅ Sanitizar input
   const sanitizedName = DOMPurify.sanitize(name);
 
-  const user = await nexusAuth.createUser({
+  const user = await nexusAuth.register({
     email,
     password,
     name: sanitizedName,
@@ -430,9 +425,7 @@ app.use(
 
 ```typescript
 export const nexusAuth = NexusAuth({
-  jwt: {
-    secret: 'hardcoded-secret', // ❌ NUNCA
-  },
+  secret: 'hardcoded-secret', // ❌ NUNCA
 });
 ```
 

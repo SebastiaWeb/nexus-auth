@@ -254,7 +254,7 @@ export async function loginAction(formData: FormData) {
   const password = formData.get('password') as string;
 
   try {
-    const result = await nexusAuth.signIn('credentials', { email, password });
+    const result = await nexusAuth.signIn({ email, password });
 
     cookies().set('accessToken', result.accessToken, {
       httpOnly: true,

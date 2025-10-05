@@ -62,7 +62,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const nexusAuth = NexusAuth({
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter({ client: prisma }),
 
   providers: [
     GoogleProvider({
@@ -77,9 +77,7 @@ export const nexusAuth = NexusAuth({
     maxAge: 30 * 24 * 60 * 60,
   },
 
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-  },
+  secret: process.env.JWT_SECRET!,
 
   callbacks: {
     async jwt({ token, user }) {
@@ -235,7 +233,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
 
   try {
-    const result = await nexusAuth.signIn('credentials', {
+    const result = await nexusAuth.signIn({
       email: body.email,
       password: body.password,
     });

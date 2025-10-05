@@ -6,6 +6,7 @@ import { User, Account, Session, VerificationToken } from '../entities';
 import { sendEmail } from '../utils/email';
 
 export const nexusAuth = NexusAuth({
+  secret: process.env.JWT_SECRET!,
   adapter: TypeORMAdapter(AppDataSource, {
     entities: {
       user: User,
@@ -28,20 +29,6 @@ export const nexusAuth = NexusAuth({
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60, // 30 días
-  },
-
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-    expiresIn: '15m', // Access token: 15 minutos
-  },
-
-  refreshToken: {
-    enabled: true,
-    expiresIn: '7d', // Refresh token: 7 días
-  },
-
-  password: {
-    saltRounds: 10,
   },
 
   callbacks: {

@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const data = signinSchema.parse(body);
 
-    const result = await nexusAuth.signIn('credentials', data);
+    const result = await nexusAuth.signIn(data);
 
     return NextResponse.json(result);
   } catch (error: any) {

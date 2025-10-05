@@ -190,8 +190,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const adapter = new PrismaAdapter({
-  prisma,
+const adapter = new PrismaAdapter({ client: prisma }, {
   // Optional: Map to existing schema
   mapping: {
     user: {
@@ -209,10 +208,7 @@ const adapter = new PrismaAdapter({
 
 export const auth = new NexusAuth({
   adapter,
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-    expiresIn: '7d',
-  },
+  secret: process.env.JWT_SECRET!,
   session: {
     strategy: 'jwt',
     updateAge: 86400,
@@ -468,8 +464,7 @@ export default async function Page() {
 If you have an existing database with custom table/column names, use schema mapping:
 
 ```typescript
-const adapter = new PrismaAdapter({
-  prisma,
+const adapter = new PrismaAdapter({ client: prisma }, {
   mapping: {
     user: {
       table: 'custom_users',           // Map to existing table

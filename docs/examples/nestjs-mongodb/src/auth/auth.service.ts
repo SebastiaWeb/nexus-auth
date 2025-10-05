@@ -8,11 +8,11 @@ export class AuthService {
   constructor(private readonly nexusAuth: NexusAuthService) {}
 
   async signup(dto: SignupDto) {
-    return this.nexusAuth.createUser(dto);
+    return this.nexusAuth.register(dto);
   }
 
   async signin(dto: SigninDto) {
-    return this.nexusAuth.signIn('credentials', dto);
+    return this.nexusAuth.signIn(dto);
   }
 
   async googleSignIn(code: string) {

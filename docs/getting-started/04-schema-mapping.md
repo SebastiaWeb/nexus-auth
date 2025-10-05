@@ -103,7 +103,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const nexusAuth = NexusAuth({
-  adapter: PrismaAdapter(prisma, {
+  adapter: PrismaAdapter({ client: prisma }, {
     models: {
       user: 'AppUser', // Nombre del modelo en Prisma
     },
@@ -426,7 +426,7 @@ import { describe, it, expect } from 'vitest';
 
 describe('Schema Mapping', () => {
   it('should correctly map legacy user fields', async () => {
-    const user = await nexusAuth.createUser({
+    const user = await nexusAuth.register({
       email: 'test@example.com',
       password: 'password123',
       name: 'Test User',

@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const data = signupSchema.parse(body);
 
-    const user = await nexusAuth.createUser(data);
+    const { user, token } = await nexusAuth.register(data);
 
     return NextResponse.json({
       success: true,
@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
         email: user.email,
         name: user.name,
       },
+      token,
     });
   } catch (error: any) {
     if (error.name === 'ZodError') {

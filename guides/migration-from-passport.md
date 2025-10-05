@@ -156,10 +156,7 @@ await dataSource.initialize();
 // Auth setup
 const auth = new NexusAuth({
   adapter: new TypeORMAdapter({ dataSource }),
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-    expiresIn: '7d',
-  },
+  secret: process.env.JWT_SECRET!,
   session: {
     strategy: 'jwt',
   },

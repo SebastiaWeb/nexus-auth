@@ -29,6 +29,7 @@ import mongoose from 'mongoose';
         const UserModel = mongoose.model(User.name, UserSchema);
 
         return {
+          secret: configService.get('JWT_SECRET')!,
           adapter: MongooseAdapter({
             models: {
               User: UserModel,
@@ -48,16 +49,6 @@ import mongoose from 'mongoose';
           session: {
             strategy: 'jwt',
             maxAge: 30 * 24 * 60 * 60,
-          },
-
-          jwt: {
-            secret: configService.get('JWT_SECRET')!,
-            expiresIn: '15m',
-          },
-
-          refreshToken: {
-            enabled: true,
-            expiresIn: '7d',
           },
 
           callbacks: {
