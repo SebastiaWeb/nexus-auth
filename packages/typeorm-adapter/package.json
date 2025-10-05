@@ -1,0 +1,63 @@
+{
+  "name": "@nexus-auth/typeorm-adapter",
+  "version": "0.1.0",
+  "description": "TypeORM adapter for NexusAuth - Database integration with schema mapping support",
+  "keywords": [
+    "nexus-auth",
+    "typeorm",
+    "adapter",
+    "database",
+    "postgres",
+    "mysql",
+    "sqlite",
+    "mssql",
+    "authentication"
+  ],
+  "author": "NexusAuth Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SebastiaWeb/nexus-auth.git",
+    "directory": "packages/typeorm-adapter"
+  },
+  "homepage": "https://github.com/SebastiaWeb/nexus-auth#readme",
+  "bugs": {
+    "url": "https://github.com/SebastiaWeb/nexus-auth/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@nexus-auth/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "!**/*.tsbuildinfo"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@nexus-auth/core": "^0.1.0",
+    "typeorm": "^0.3.0"
+  },
+  "devDependencies": {
+    "@nexus-auth/core": "workspace:*",
+    "typeorm": "^0.3.0"
+  }
+}

@@ -1,0 +1,48 @@
+# Code Owners for NexusAuth
+# This file defines who is responsible for code reviews in different parts of the codebase.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners - will be requested for review on all PRs unless a more specific rule applies
+* @yourusername
+
+# Core Package
+/packages/core/ @yourusername
+
+# Database Adapters
+/packages/typeorm-adapter/ @yourusername
+/packages/prisma-adapter/ @yourusername
+/packages/mongoose-adapter/ @yourusername
+/packages/sql-adapter/ @yourusername
+
+# OAuth Providers
+/packages/providers/ @yourusername
+
+# Framework Helpers
+/packages/nextjs-helpers/ @yourusername
+/packages/nestjs-helpers/ @yourusername
+/packages/express-helpers/ @yourusername
+
+# Documentation
+/docs/ @yourusername
+/guides/ @yourusername
+*.md @yourusername
+
+# Configuration Files
+/package.json @yourusername
+/pnpm-workspace.yaml @yourusername
+/nx.json @yourusername
+/tsconfig*.json @yourusername
+
+# CI/CD
+/.github/workflows/ @yourusername
+/.github/actions/ @yourusername
+
+# Security
+/SECURITY.md @yourusername
+/.github/SECURITY.md @yourusername
+
+# Build and Release
+/scripts/ @yourusername
+/.releaserc.json @yourusername
+/.versionrc.json @yourusername
+/commitlint.config.js @yourusername

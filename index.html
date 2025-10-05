@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth NPM Package - Roadmap Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .progress-overview {
+            padding: 30px;
+            background: #f8f9ff;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .progress-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .progress-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .progress-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .progress-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .phases {
+            padding: 30px;
+        }
+
+        .phase {
+            margin-bottom: 30px;
+            border: 2px solid #e0e6ff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .phase.completed {
+            border-color: #4CAF50;
+            background: #f0fff0;
+        }
+
+        .phase.in-progress {
+            border-color: #FF9800;
+            background: #fff8f0;
+        }
+
+        .phase-header {
+            background: linear-gradient(135deg, #e0e6ff 0%, #c7d2fe 100%);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .phase.completed .phase-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+        }
+
+        .phase.in-progress .phase-header {
+            background: linear-gradient(135deg, #FF9800 0%, #f57c00 100%);
+            color: white;
+        }
+
+        .phase-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .phase-weeks {
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .phase-status {
+            font-size: 1.5rem;
+        }
+
+        .tasks {
+            padding: 20px;
+            display: none;
+        }
+
+        .phase.open .tasks {
+            display: block;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .task.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #667eea;
+            transform: scale(1.2);
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .task.completed .task-text {
+            text-decoration: line-through;
+        }
+
+        .milestone {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .milestone h3 {
+            margin-bottom: 10px;
+        }
+
+        .export-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .export-btn:hover {
+            background: #5a67d8;
+            transform: scale(1.05);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #e0e6ff;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .phase-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .progress-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .export-btn {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Auth NPM Package</h1>
+            <p>Roadmap Progress Tracker</p>
+        </div>
+
+        <div class="progress-overview">
+            <div class="progress-card">
+                <h3>Total Fases</h3>
+                <div class="progress-number" id="totalPhases">10</div>
+            </div>
+            <div class="progress-card">
+                <h3>Completadas</h3>
+                <div class="progress-number" id="completedPhases">0</div>
+            </div>
+            <div class="progress-card">
+                <h3>En Progreso</h3>
+                <div class="progress-number" id="inProgressPhases">0</div>
+            </div>
+            <div class="progress-card">
+                <h3>% Progreso</h3>
+                <div class="progress-number" id="progressPercentage">0%</div>
+            </div>
+        </div>
+
+        <div class="phases">
+            <!-- FASE 1 -->
+            <div class="phase" data-phase="1">
+                <div class="phase-header" onclick="togglePhase(1)">
+                    <div>
+                        <div class="phase-title">🎯 FASE 1: ARQUITECTURA BASE</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 1-2</div>
+                    <div class="phase-status">📋</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Definir estructura del monorepo (Lerna/Rush/Nx)</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Configurar workspaces y naming conventions</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Diseñar interface BaseAdapter</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Diseñar interface OAuth Providers</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Definir schema de configuración principal</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Planificar sistema de plugins y dependencias</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 2 -->
+            <div class="phase" data-phase="2">
+                <div class="phase-header" onclick="togglePhase(2)">
+                    <div>
+                        <div class="phase-title">🔧 FASE 2: CORE FOUNDATION</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 3-4</div>
+                    <div class="phase-status">⚙️</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Crear package principal (@yourauth/core)</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Implementar clase Auth principal</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Sistema de configuración</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Manejo de JWT básico</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Hash de passwords</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Middleware básico para frameworks</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Configurar testing strategy (Jest/Vitest)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MILESTONE -->
+            <div class="milestone">
+                <h3>🎯 MILESTONE: Semana 4</h3>
+                <p>Core funcional con 1 adapter</p>
+            </div>
+
+            <!-- FASE 3 -->
+            <div class="phase" data-phase="3">
+                <div class="phase-header" onclick="togglePhase(3)">
+                    <div>
+                        <div class="phase-title">🗄️ FASE 3: PRIMER ADAPTER</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 5-6</div>
+                    <div class="phase-status">🔌</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Crear TypeORM Adapter (@yourauth/typeorm-adapter)</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Implementar BaseAdapter interface</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Schema auto-creation</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Custom table mapping</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Migration system</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Validar arquitectura y ajustar interfaces</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 4 -->
+            <div class="phase" data-phase="4">
+                <div class="phase-header" onclick="togglePhase(4)">
+                    <div>
+                        <div class="phase-title">🔐 FASE 4: AUTH BÁSICO</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 7-8</div>
+                    <div class="phase-status">🔑</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Registration flow</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Login flow</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Password reset</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Email verification (opcional)</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">JWT creation/validation</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Refresh tokens</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Session invalidation</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MILESTONE -->
+            <div class="milestone">
+                <h3>🎯 MILESTONE: Semana 8</h3>
+                <p>Auth básico completo</p>
+            </div>
+
+            <!-- FASE 5 -->
+            <div class="phase" data-phase="5">
+                <div class="phase-header" onclick="togglePhase(5)">
+                    <div>
+                        <div class="phase-title">🌐 FASE 5: OAUTH FOUNDATION</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 9-10</div>
+                    <div class="phase-status">🔗</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">OAuth2 flow genérico</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">State management</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Callback handling</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Google OAuth2 implementation</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Crear como package separado</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Validar sistema de plugins</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 6 -->
+            <div class="phase" data-phase="6">
+                <div class="phase-header" onclick="togglePhase(6)">
+                    <div>
+                        <div class="phase-title">📦 FASE 6: ECOSYSTEM EXPANSION</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 11-14</div>
+                    <div class="phase-status">🌟</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Prisma adapter</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Mongoose adapter</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Raw SQL adapter</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">GitHub OAuth provider</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Facebook OAuth provider</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Microsoft OAuth provider</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Helpers para Next.js</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Helpers para NestJS</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Express middleware optimizado</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MILESTONE -->
+            <div class="milestone">
+                <h3>🎯 MILESTONE: Semana 12</h3>
+                <p>OAuth functional con 2 providers</p>
+            </div>
+
+            <!-- FASE 7 -->
+            <div class="phase" data-phase="7">
+                <div class="phase-header" onclick="togglePhase(7)">
+                    <div>
+                        <div class="phase-title">📚 FASE 7: DOCUMENTATION & EXAMPLES</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 15-16</div>
+                    <div class="phase-status">📖</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Getting started guides</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">API reference completa</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Migration guides</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Best practices documentation</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Express + TypeORM example</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Next.js + Prisma example</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">NestJS + MongoDB example</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 8 -->
+            <div class="phase" data-phase="8">
+                <div class="phase-header" onclick="togglePhase(8)">
+                    <div>
+                        <div class="phase-title">🚀 FASE 8: LAUNCH PREPARATION</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 17-18</div>
+                    <div class="phase-status">🎪</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">CI/CD para automatic publishing</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Version management</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Package.json optimization</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">GitHub templates y contributing guidelines</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">README atractivo</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Demo videos</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Blog post de lanzamiento</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MILESTONE -->
+            <div class="milestone">
+                <h3>🎯 MILESTONE: Semana 16</h3>
+                <p>Ecosystem completo listo</p>
+            </div>
+
+            <!-- FASE 9 -->
+            <div class="phase" data-phase="9">
+                <div class="phase-header" onclick="togglePhase(9)">
+                    <div>
+                        <div class="phase-title">📈 FASE 9: INITIAL RELEASE & FEEDBACK</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 19-20</div>
+                    <div class="phase-status">🌍</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Publicar en NPM</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Compartir en dev communities</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Gather initial feedback</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Fix bugs críticos</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Implement requested features</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Optimize based on usage patterns</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 10 -->
+            <div class="phase" data-phase="10">
+                <div class="phase-header" onclick="togglePhase(10)">
+                    <div>
+                        <div class="phase-title">🎯 FASE 10: GROWTH & PREMIUM PREP</div>
+                    </div>
+                    <div class="phase-weeks">Semanas 21-24</div>
+                    <div class="phase-status">💎</div>
+                </div>
+                <div class="tasks">
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">2FA/MFA system</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Role-based permissions</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Audit logging</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Enterprise providers (SAML, Keycloak)</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Advanced security features</div>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                        <div class="task-text">Priority support system</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FINAL MILESTONES -->
+            <div class="milestone">
+                <h3>🏆 FINAL MILESTONES</h3>
+                <p><strong>Semana 18:</strong> Documentation & examples done</p>
+                <p><strong>Semana 20:</strong> Launch público exitoso (100+ GitHub stars)</p>
+                <p><strong>Mes 3:</strong> 1,000+ NPM downloads/week</p>
+                <p><strong>Mes 6:</strong> 5,000+ NPM downloads/week</p>
+                <p><strong>Mes 9:</strong> First premium customers</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="export-btn" onclick="exportProgress()">📊 Export Progress</button>
+
+    <script>
+        function togglePhase(phaseNumber) {
+            const phase = document.querySelector(`[data-phase="${phaseNumber}"]`);
+            phase.classList.toggle('open');
+        }
+
+        function updateProgress() {
+            const allTasks = document.querySelectorAll('.task-checkbox');
+            const completedTasks = document.querySelectorAll('.task-checkbox:checked');
+            const phases = document.querySelectorAll('.phase');
+            
+            let completedPhases = 0;
+            let inProgressPhases = 0;
+            
+            phases.forEach(phase => {
+                const phaseTasks = phase.querySelectorAll('.task-checkbox');
+                const phaseCompletedTasks = phase.querySelectorAll('.task-checkbox:checked');
+                
+                // Reset classes
+                phase.classList.remove('completed', 'in-progress');
+                
+                if (phaseCompletedTasks.length === phaseTasks.length && phaseTasks.length > 0) {
+                    phase.classList.add('completed');
+                    completedPhases++;
+                } else if (phaseCompletedTasks.length > 0) {
+                    phase.classList.add('in-progress');
+                    inProgressPhases++;
+                }
+            });
+
+            const progressPercentage = Math.round((completedTasks.length / allTasks.length) * 100);
+            
+            document.getElementById('completedPhases').textContent = completedPhases;
+            document.getElementById('inProgressPhases').textContent = inProgressPhases;
+            document.getElementById('progressPercentage').textContent = progressPercentage + '%';
+            
+            // Save progress to localStorage
+            const progress = Array.from(allTasks).map(task => task.checked);
+            localStorage.setItem('authRoadmapProgress', JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('authRoadmapProgress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const allTasks = document.querySelectorAll('.task-checkbox');
+                allTasks.forEach((task, index) => {
+                    if (progress[index]) {
+                        task.checked = true;
+                        task.closest('.task').classList.add('completed');
+                    }
+                });
+                updateProgress();
+            }
+        }
+
+        function exportProgress() {
+            const phases = document.querySelectorAll('.phase');
+            let report = `# Auth NPM Package - Progress Report\n\n`;
+            report += `Generated: ${new Date().toLocaleDateString()}\n\n`;
+            
+            const completedPhases = document.getElementById('completedPhases').textContent;
+            const inProgressPhases = document.getElementById('inProgressPhases').textContent;
+            const progressPercentage = document.getElementById('progressPercentage').textContent;
+            
+            report += `## Overview\n`;
+            report += `- Total Phases: 10\n`;
+            report += `- Completed Phases: ${completedPhases}\n`;
+            report += `- In Progress Phases: ${inProgressPhases}\n`;
+            report += `- Overall Progress: ${progressPercentage}\n\n`;
+            
+            phases.forEach((phase, index) => {
+                const phaseTitle = phase.querySelector('.phase-title').textContent;
+                const phaseWeeks = phase.querySelector('.phase-weeks').textContent;
+                const tasks = phase.querySelectorAll('.task');
+                const completedTasks = phase.querySelectorAll('.task.completed');
+                
+                report += `## ${phaseTitle} (${phaseWeeks})\n`;
+                report += `Progress: ${completedTasks.length}/${tasks.length} tasks completed\n\n`;
+                
+                tasks.forEach(task => {
+                    const taskText = task.querySelector('.task-text').textContent;
+                    const isCompleted = task.classList.contains('completed');
+                    report += `- [${isCompleted ? 'x' : ' '}] ${taskText}\n`;
+                });
+                report += `\n`;
+            });
+            
+            // Create and download file
+            const blob = new Blob([report], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `auth-roadmap-progress-${new Date().toISOString().split('T')[0]}.md`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Add click handlers for task completion
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize progress
+            updateProgress();
+            loadProgress();
+            
+            const taskCheckboxes = document.querySelectorAll('.task-checkbox');
+            taskCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const task = this.closest('.task');
+                    if (this.checked) {
+                        task.classList.add('completed');
+                    } else {
+                        task.classList.remove('completed');
+                    }
+                    updateProgress();
+                });
+            });
+        });
+
+        // Auto-save every 30 seconds
+        setInterval(() => {
+            const allTasks = document.querySelectorAll('.task-checkbox');
+            const progress = Array.from(allTasks).map(task => task.checked);
+            localStorage.setItem('authRoadmapProgress', JSON.stringify(progress));
+        }, 30000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+# GitHub Labels Configuration
+# Use this file with the GitHub CLI to sync labels across the repository
+# Usage: gh label sync -f .github/labels.yml
+
+# Type Labels
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "question"
+  color: "d876e3"
+  description: "Further information is requested"
+
+- name: "discussion"
+  color: "cc317c"
+  description: "General discussion or brainstorming"
+
+# Priority Labels
+- name: "priority: critical"
+  color: "b60205"
+  description: "Critical priority - immediate attention needed"
+
+- name: "priority: high"
+  color: "d93f0b"
+  description: "High priority"
+
+- name: "priority: medium"
+  color: "fbca04"
+  description: "Medium priority"
+
+- name: "priority: low"
+  color: "0e8a16"
+  description: "Low priority"
+
+# Status Labels
+- name: "needs-triage"
+  color: "ededed"
+  description: "Needs initial review and categorization"
+
+- name: "blocked"
+  color: "000000"
+  description: "Blocked by external dependency or other issue"
+
+- name: "in-progress"
+  color: "1d76db"
+  description: "Currently being worked on"
+
+- name: "ready-for-review"
+  color: "0e8a16"
+  description: "Ready for review"
+
+- name: "awaiting-response"
+  color: "fbca04"
+  description: "Waiting for response from author"
+
+# Package Labels
+- name: "pkg: core"
+  color: "006b75"
+  description: "@nexus-auth/core package"
+
+- name: "pkg: typeorm-adapter"
+  color: "006b75"
+  description: "@nexus-auth/typeorm-adapter package"
+
+- name: "pkg: prisma-adapter"
+  color: "006b75"
+  description: "@nexus-auth/prisma-adapter package"
+
+- name: "pkg: mongoose-adapter"
+  color: "006b75"
+  description: "@nexus-auth/mongoose-adapter package"
+
+- name: "pkg: sql-adapter"
+  color: "006b75"
+  description: "@nexus-auth/sql-adapter package"
+
+- name: "pkg: providers"
+  color: "006b75"
+  description: "@nexus-auth/providers package"
+
+- name: "pkg: nextjs-helpers"
+  color: "006b75"
+  description: "@nexus-auth/nextjs-helpers package"
+
+- name: "pkg: nestjs-helpers"
+  color: "006b75"
+  description: "@nexus-auth/nestjs-helpers package"
+
+- name: "pkg: express-helpers"
+  color: "006b75"
+  description: "@nexus-auth/express-helpers package"
+
+# Feature Area Labels
+- name: "area: authentication"
+  color: "c5def5"
+  description: "Related to authentication flows"
+
+- name: "area: oauth"
+  color: "c5def5"
+  description: "Related to OAuth providers"
+
+- name: "area: adapters"
+  color: "c5def5"
+  description: "Related to database adapters"
+
+- name: "area: security"
+  color: "ee0701"
+  description: "Related to security"
+
+- name: "area: performance"
+  color: "c5def5"
+  description: "Related to performance"
+
+- name: "area: testing"
+  color: "c5def5"
+  description: "Related to testing"
+
+- name: "area: ci-cd"
+  color: "c5def5"
+  description: "Related to CI/CD"
+
+- name: "area: types"
+  color: "c5def5"
+  description: "Related to TypeScript types"
+
+# Special Labels
+- name: "good first issue"
+  color: "7057ff"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+- name: "breaking-change"
+  color: "d73a4a"
+  description: "Introduces breaking changes"
+
+- name: "duplicate"
+  color: "cfd3d7"
+  description: "This issue or pull request already exists"
+
+- name: "wontfix"
+  color: "ffffff"
+  description: "This will not be worked on"
+
+- name: "invalid"
+  color: "e4e669"
+  description: "This doesn't seem right"
+
+- name: "stale"
+  color: "ededed"
+  description: "No activity for extended period"
+
+# Request Type Labels
+- name: "adapter"
+  color: "fef2c0"
+  description: "Request for new adapter"
+
+- name: "oauth-provider"
+  color: "fef2c0"
+  description: "Request for new OAuth provider"
+
+- name: "framework-helper"
+  color: "fef2c0"
+  description: "Request for new framework helper"
+
+# Size Labels (for PRs)
+- name: "size: XS"
+  color: "3CBF00"
+  description: "Extra small PR (< 10 lines)"
+
+- name: "size: S"
+  color: "5D9801"
+  description: "Small PR (10-99 lines)"
+
+- name: "size: M"
+  color: "7F7203"
+  description: "Medium PR (100-499 lines)"
+
+- name: "size: L"
+  color: "A14C05"
+  description: "Large PR (500-999 lines)"
+
+- name: "size: XL"
+  color: "C32607"
+  description: "Extra large PR (1000+ lines)"
+
+# Automation Labels
+- name: "dependencies"
+  color: "0366d6"
+  description: "Pull requests that update a dependency file"
+
+- name: "automated"
+  color: "ededed"
+  description: "Automated PR or issue"
+
+- name: "release"
+  color: "00ff00"
+  description: "Related to releases"
+
+# Community Labels
+- name: "community"
+  color: "ffc107"
+  description: "Community contribution"
+
+- name: "showcase"
+  color: "ffc107"
+  description: "Community showcase"

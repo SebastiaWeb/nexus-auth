@@ -1,0 +1,87 @@
+name: ❓ Question
+description: Ask a question about using NexusAuth
+title: "[Question]: "
+labels: ["question", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        👋 Before asking a question, please:
+        - Check the [documentation](https://github.com/yourusername/nexus-auth#readme)
+        - Search [existing issues](https://github.com/yourusername/nexus-auth/issues)
+        - Check [discussions](https://github.com/yourusername/nexus-auth/discussions)
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: Ask your question here...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you trying to accomplish?
+      placeholder: I'm trying to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Current Code
+      description: Share relevant code if applicable
+      render: typescript
+      placeholder: |
+        import { NexusAuth } from '@nexus-auth/core';
+
+        // Your code here
+    validations:
+      required: false
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Related Package(s)
+      description: Which package(s) is this question about?
+      multiple: true
+      options:
+        - "@nexus-auth/core"
+        - "@nexus-auth/typeorm-adapter"
+        - "@nexus-auth/prisma-adapter"
+        - "@nexus-auth/mongoose-adapter"
+        - "@nexus-auth/sql-adapter"
+        - "@nexus-auth/providers"
+        - "@nexus-auth/nextjs-helpers"
+        - "@nexus-auth/nestjs-helpers"
+        - "@nexus-auth/express-helpers"
+        - "General usage"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Framework
+      description: What framework are you using?
+      options:
+        - "Next.js"
+        - "NestJS"
+        - "Express"
+        - "Other"
+        - "None / Standalone"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched the documentation
+          required: true
+        - label: I have searched existing issues and discussions
+          required: true

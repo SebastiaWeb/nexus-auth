@@ -1,0 +1,65 @@
+{
+  "types": [
+    {"type": "feat", "section": "✨ Features"},
+    {"type": "fix", "section": "🐛 Bug Fixes"},
+    {"type": "perf", "section": "⚡ Performance Improvements"},
+    {"type": "revert", "section": "⏪ Reverts"},
+    {"type": "docs", "section": "📚 Documentation"},
+    {"type": "style", "section": "💎 Styles", "hidden": true},
+    {"type": "chore", "section": "🔧 Miscellaneous", "hidden": true},
+    {"type": "refactor", "section": "♻️ Code Refactoring"},
+    {"type": "test", "section": "✅ Tests", "hidden": true},
+    {"type": "build", "section": "🏗️ Build System", "hidden": true},
+    {"type": "ci", "section": "👷 CI/CD", "hidden": true}
+  ],
+  "scripts": {
+    "postchangelog": "prettier --write CHANGELOG.md"
+  },
+  "header": "# Changelog\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}} [skip ci]",
+  "skip": {
+    "tag": false
+  },
+  "bumpFiles": [
+    {
+      "filename": "package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/core/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/typeorm-adapter/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/prisma-adapter/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/mongoose-adapter/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/sql-adapter/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/providers/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/nextjs-helpers/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/nestjs-helpers/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/express-helpers/package.json",
+      "type": "json"
+    }
+  ]
+}

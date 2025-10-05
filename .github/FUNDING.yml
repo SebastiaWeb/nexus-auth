@@ -1,0 +1,17 @@
+# Funding configuration for NexusAuth
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# GitHub Sponsors
+github: # [yourusername]
+
+# Open Collective
+# open_collective: nexus-auth
+
+# Ko-fi
+# ko_fi: yourusername
+
+# Patreon
+# patreon: yourusername
+
+# Buy Me a Coffee
+# custom: ['https://www.buymeacoffee.com/yourusername']

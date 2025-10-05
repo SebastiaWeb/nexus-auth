@@ -1,0 +1,61 @@
+{
+  "name": "@nexus-auth/mongoose-adapter",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@nexus-auth/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@nexus-auth/core": "^0.1.0",
+    "mongoose": "^7.0.0 || ^8.0.0"
+  },
+  "devDependencies": {
+    "@nexus-auth/core": "workspace:*",
+    "mongoose": "^8.0.0",
+    "@types/mongoose": "^5.11.97"
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "README.md",
+    "LICENSE"
+  ],
+  "description": "Mongoose adapter for NexusAuth - MongoDB integration with schema mapping support",
+  "keywords": [
+    "nexus-auth",
+    "mongoose",
+    "mongodb",
+    "adapter",
+    "database",
+    "authentication"
+  ],
+  "author": "NexusAuth Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SebastiaWeb/nexus-auth.git",
+    "directory": "packages/mongoose-adapter"
+  },
+  "homepage": "https://github.com/SebastiaWeb/nexus-auth#readme",
+  "bugs": {
+    "url": "https://github.com/SebastiaWeb/nexus-auth/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

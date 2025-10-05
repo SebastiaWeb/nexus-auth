@@ -1,0 +1,34 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/typeorm-adapter"
+    },
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/providers"
+    },
+    {
+      "path": "./packages/prisma-adapter"
+    },
+    {
+      "path": "./packages/mongoose-adapter"
+    },
+    {
+      "path": "./packages/sql-adapter"
+    },
+    {
+      "path": "./packages/nextjs-helpers"
+    },
+    {
+      "path": "./packages/nestjs-helpers"
+    },
+    {
+      "path": "./packages/express-helpers"
+    }
+  ]
+}

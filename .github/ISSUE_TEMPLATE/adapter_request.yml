@@ -1,0 +1,94 @@
+name: 🔌 Adapter Request
+description: Request support for a new database adapter
+title: "[Adapter]: "
+labels: ["enhancement", "adapter", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new adapter! This helps us understand what databases the community needs.
+
+  - type: input
+    id: database
+    attributes:
+      label: Database/ORM Name
+      description: What database or ORM should be supported?
+      placeholder: "e.g., Sequelize, Drizzle, DynamoDB, etc."
+    validations:
+      required: true
+
+  - type: input
+    id: database-url
+    attributes:
+      label: Database/ORM Website
+      description: Link to the database or ORM documentation
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Why do you need this adapter?
+      placeholder: Describe your use case...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this to you?
+      options:
+        - "Critical - Blocking my adoption"
+        - "High - Would adopt if available"
+        - "Medium - Nice to have"
+        - "Low - Just curious"
+    validations:
+      required: true
+
+  - type: textarea
+    id: schema
+    attributes:
+      label: Expected Schema Structure
+      description: If you know how the schema should look, share it
+      render: typescript
+      placeholder: |
+        // Example schema structure
+        interface User {
+          id: string;
+          email: string;
+          // ...
+        }
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: willing-to-contribute
+    attributes:
+      label: Contribution
+      description: Would you be willing to contribute?
+      options:
+        - label: I would be willing to implement this adapter
+        - label: I would be willing to help test this adapter
+        - label: I would be willing to maintain this adapter
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Additional details...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues
+          required: true
+        - label: This adapter doesn't already exist
+          required: true

@@ -1,0 +1,19 @@
+labels: [discussion]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💬 General Discussion
+
+        This is a space for open-ended discussions about NexusAuth.
+
+        For specific issues, please use the [issue tracker](../issues/new/choose).
+
+  - type: textarea
+    id: topic
+    attributes:
+      label: Discussion Topic
+      description: What would you like to discuss?
+    validations:
+      required: true

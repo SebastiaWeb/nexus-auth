@@ -1,0 +1,75 @@
+# Auto-labeler configuration
+# Labels PRs based on changed files
+
+# Package Labels
+'pkg: core':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/core/**/*'
+
+'pkg: typeorm-adapter':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/typeorm-adapter/**/*'
+
+'pkg: prisma-adapter':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/prisma-adapter/**/*'
+
+'pkg: mongoose-adapter':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/mongoose-adapter/**/*'
+
+'pkg: sql-adapter':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/sql-adapter/**/*'
+
+'pkg: providers':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/providers/**/*'
+
+'pkg: nextjs-helpers':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/nextjs-helpers/**/*'
+
+'pkg: nestjs-helpers':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/nestjs-helpers/**/*'
+
+'pkg: express-helpers':
+  - changed-files:
+    - any-glob-to-any-file: 'packages/express-helpers/**/*'
+
+# Area Labels
+'documentation':
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.md'
+      - 'docs/**/*'
+      - 'guides/**/*'
+
+'area: testing':
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.test.ts'
+      - '**/*.spec.ts'
+      - '**/test/**/*'
+      - '**/tests/**/*'
+
+'area: ci-cd':
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.github/workflows/**/*'
+      - '.github/actions/**/*'
+      - 'scripts/**/*'
+
+'area: types':
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/types.ts'
+      - '**/*.d.ts'
+
+'dependencies':
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'package.json'
+      - 'packages/*/package.json'
+      - 'pnpm-lock.yaml'

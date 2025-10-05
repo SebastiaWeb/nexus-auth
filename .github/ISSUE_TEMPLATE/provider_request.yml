@@ -1,0 +1,101 @@
+name: 🌐 OAuth Provider Request
+description: Request support for a new OAuth provider
+title: "[Provider]: "
+labels: ["enhancement", "oauth-provider", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new OAuth provider! This helps us prioritize provider integrations.
+
+  - type: input
+    id: provider
+    attributes:
+      label: Provider Name
+      description: What OAuth provider should be supported?
+      placeholder: "e.g., Twitter/X, LinkedIn, Discord, etc."
+    validations:
+      required: true
+
+  - type: input
+    id: provider-url
+    attributes:
+      label: Provider Documentation
+      description: Link to the provider's OAuth documentation
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: oauth-version
+    attributes:
+      label: OAuth Version
+      description: What OAuth version does the provider use?
+      options:
+        - "OAuth 2.0"
+        - "OAuth 1.0a"
+        - "OpenID Connect"
+        - "SAML"
+        - "Other"
+    validations:
+      required: false
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Why do you need this provider?
+      placeholder: Describe your use case...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this to you?
+      options:
+        - "Critical - Blocking my adoption"
+        - "High - Would use immediately"
+        - "Medium - Nice to have"
+        - "Low - Just curious"
+    validations:
+      required: true
+
+  - type: textarea
+    id: considerations
+    attributes:
+      label: Special Considerations
+      description: Any special requirements or considerations for this provider?
+      placeholder: e.g., Rate limits, special scopes, verification requirements...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: willing-to-contribute
+    attributes:
+      label: Contribution
+      description: Would you be willing to contribute?
+      options:
+        - label: I would be willing to implement this provider
+        - label: I would be willing to help test this provider
+        - label: I have access to this provider's developer account for testing
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Additional details...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues
+          required: true
+        - label: This provider doesn't already exist
+          required: true

@@ -1,0 +1,124 @@
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.nx/cache
+.nx/workspace-data
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+
+# Development logs
+bug_log.txt
+
+# Internal planning/documentation (not for public repo)
+ESTADO-ACTUAL.md
+RESUMEN-FASE-6.md
+PHASE_*.md
+project_summary.txt
+GROWTH_STRATEGY.md
+**/GROWTH_STRATEGY.md
+auth-roadmap-progress-*.md
+
+# Environment variables (sensitive)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+
+# Database files (sensitive)
+*.db
+*.sqlite
+*.sqlite3
+
+# NPM/pnpm (sensitive)
+.npmrc
+.pnpmrc
+.yarnrc
+
+# Logs (may contain sensitive data)
+*.log
+logs/
+*.log.*
+
+# Testing coverage reports
+coverage/
+.nyc_output/
+
+# Build artifacts
+*.tsbuildinfo
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor specific
+.vscode/settings.json
+.idea/workspace.xml
+.idea/tasks.xml
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Local development only
+local/
+.local/
+
+# Secrets and credentials (critical)
+secrets/
+credentials/
+*.pem
+*.key
+*.cert
+*.p12
+.secrets
+
+# Verdaccio local registry storage
+.verdaccio/storage/
+tmp/local-registry/

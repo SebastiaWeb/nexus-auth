@@ -1,0 +1,61 @@
+{
+  "name": "@nexus-auth/sql-adapter",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@nexus-auth/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@nexus-auth/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@nexus-auth/core": "workspace:*"
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "README.md",
+    "LICENSE"
+  ],
+  "description": "Raw SQL adapter for NexusAuth - Universal SQL database support without ORM dependencies",
+  "keywords": [
+    "nexus-auth",
+    "sql",
+    "adapter",
+    "database",
+    "postgres",
+    "mysql",
+    "sqlite",
+    "mssql",
+    "authentication"
+  ],
+  "author": "NexusAuth Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SebastiaWeb/nexus-auth.git",
+    "directory": "packages/sql-adapter"
+  },
+  "homepage": "https://github.com/SebastiaWeb/nexus-auth#readme",
+  "bugs": {
+    "url": "https://github.com/SebastiaWeb/nexus-auth/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

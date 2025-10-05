@@ -1,0 +1,58 @@
+{
+  "name": "@nexus-auth/core",
+  "version": "0.1.0",
+  "description": "Core authentication library for NexusAuth - Framework agnostic, TypeScript-first authentication with schema mapping",
+  "keywords": [
+    "auth",
+    "authentication",
+    "jwt",
+    "oauth",
+    "oauth2",
+    "session",
+    "passport",
+    "nextauth",
+    "typescript",
+    "security"
+  ],
+  "author": "NexusAuth Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SebastiaWeb/nexus-auth.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/SebastiaWeb/nexus-auth#readme",
+  "bugs": {
+    "url": "https://github.com/SebastiaWeb/nexus-auth/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "bcrypt": "^5.0.0",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.0"
+  }
+}

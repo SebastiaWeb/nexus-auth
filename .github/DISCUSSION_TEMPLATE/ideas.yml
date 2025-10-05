@@ -1,0 +1,27 @@
+labels: [discussion, idea]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 Share Your Ideas
+
+        Got an idea for improving NexusAuth? Share it here!
+
+        This is for brainstorming and early-stage ideas. For concrete feature requests, please use the [feature request template](../issues/new?template=feature_request.yml).
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your Idea
+      description: Describe your idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Potential Benefits
+      description: How would this benefit the community?
+    validations:
+      required: false
