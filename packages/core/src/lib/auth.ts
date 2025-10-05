@@ -3,7 +3,7 @@ import type { BaseAdapter } from './types.js';
 import type { Provider } from './provider.js';
 import type { NexusAuthRequest } from './request.js';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 /**
  * The main class that orchestrates the authentication flow.

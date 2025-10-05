@@ -17,5 +17,19 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "references": [
+    {
+      "path": "../../../packages/providers"
+    },
+    {
+      "path": "../../../packages/nestjs-helpers"
+    },
+    {
+      "path": "../../../packages/mongoose-adapter"
+    },
+    {
+      "path": "../../../packages/core"
+    }
+  ]
 }

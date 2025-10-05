@@ -19,5 +19,19 @@
     "strictPropertyInitialization": false
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
+  "references": [
+    {
+      "path": "../../../packages/providers"
+    },
+    {
+      "path": "../../../packages/typeorm-adapter"
+    },
+    {
+      "path": "../../../packages/express-helpers"
+    },
+    {
+      "path": "../../../packages/core"
+    }
+  ]
 }

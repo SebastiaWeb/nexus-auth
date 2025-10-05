@@ -1,6 +1,6 @@
 {
   "name": "@nexusauth/typeorm-adapter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeORM adapter for NexusAuth - Database integration with schema mapping support",
   "keywords": [
     "nexus-auth",
