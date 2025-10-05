@@ -387,7 +387,7 @@ Please read our [Contributing Guide](./CONTRIBUTING.md) to get started.
 
 ### Good First Issues
 
-Looking for a place to start? Check out issues labeled [`good first issue`](https://github.com/yourusername/nexus-auth/issues?q=label%3A%22good+first+issue%22).
+Looking for a place to start? Check out issues labeled [`good first issue`](https://github.com/SebastiaWeb/nexus-auth/issues?q=label%3A%22good+first+issue%22).
 
 ## 📖 Examples
 
@@ -410,7 +410,7 @@ Check out our [example projects](./guides/):
 - [ ] Rate limiting middleware
 - [ ] Session management UI
 
-[View full roadmap →](https://github.com/yourusername/nexus-auth/projects)
+[View full roadmap →](https://github.com/SebastiaWeb/nexus-auth/projects)
 
 ## 🔒 Security
 
@@ -424,8 +424,8 @@ NexusAuth is [MIT licensed](./LICENSE).
 
 ## 💬 Community & Support
 
-- 💬 [GitHub Discussions](https://github.com/yourusername/nexus-auth/discussions) - Ask questions, share ideas
-- 🐛 [Issue Tracker](https://github.com/yourusername/nexus-auth/issues) - Report bugs
+- 💬 [GitHub Discussions](https://github.com/SebastiaWeb/nexus-auth/discussions) - Ask questions, share ideas
+- 🐛 [Issue Tracker](https://github.com/SebastiaWeb/nexus-auth/issues) - Report bugs
 - 📧 [Email Support](mailto:support@nexus-auth.dev) - Get help
 - 🐦 [Twitter](https://twitter.com/nexus_auth) - Follow for updates
 
@@ -436,7 +436,7 @@ If you find NexusAuth useful, please consider:
 - ⭐ Starring the repository
 - 🐦 Sharing on Twitter
 - 📝 Writing a blog post
-- 💰 [Sponsoring the project](https://github.com/sponsors/yourusername)
+- 💰 [Sponsoring the project](https://github.com/sponsors/SebastiaWeb)
 
 ---
 
