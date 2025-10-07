@@ -397,21 +397,6 @@ Check out our [example projects](./guides/):
 - [Next.js + Prisma](./guides/nextjs-prisma-example/)
 - [NestJS + MongoDB](./guides/nestjs-mongodb-example/)
 
-## 🛣️ Roadmap
-
-- [x] Core authentication (register, login, JWT)
-- [x] OAuth 2.0 support (Google, GitHub, Facebook, Microsoft)
-- [x] Database adapters (TypeORM, Prisma, Mongoose, SQL)
-- [x] Framework helpers (Next.js, NestJS, Express)
-- [ ] 2FA/MFA support
-- [ ] Role-based permissions (RBAC)
-- [ ] Audit logging
-- [ ] Enterprise providers (SAML, LDAP)
-- [ ] Rate limiting middleware
-- [ ] Session management UI
-
-[View full roadmap →](https://github.com/SebastiaWeb/nexus-auth/projects)
-
 ## 🔒 Security
 
 Security is our top priority. If you discover a vulnerability, please follow our [Security Policy](./.github/SECURITY.md).

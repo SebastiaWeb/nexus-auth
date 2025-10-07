@@ -63,8 +63,7 @@ Please see our [Security Policy](./SECURITY.md) for reporting security vulnerabi
 
 Looking for priority support, custom development, or consulting?
 
-- Email: support@nexus-auth.dev (update with your actual contact)
-- Enterprise packages (coming soon)
+- Email: support@nexus-auth.dev
 
 ## 📖 Learning Resources
 

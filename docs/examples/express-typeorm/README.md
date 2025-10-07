@@ -451,9 +451,9 @@ export const signupLimiter = rateLimit({
 ## Próximos Pasos
 
 - Añadir tests con Jest/Vitest
-- Implementar 2FA
 - Añadir more OAuth providers
 - Deploy a producción
+- Mejorar validación y manejo de errores
 
 ---
 
