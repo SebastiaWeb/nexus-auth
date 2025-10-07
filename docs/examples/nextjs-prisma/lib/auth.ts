@@ -3,8 +3,8 @@ import { PrismaAdapter } from '@nexusauth/prisma-adapter';
 import { GoogleProvider } from '@nexusauth/providers';
 import { prisma } from './prisma';
 
-export const nexusAuth = NexusAuth({
-  secret: process.env.JWT_SECRET!,
+export const nexusAuth = new NexusAuth({
+  secret: process.env.JWT_SECRET || 'nexusauth-secret-fallback',
   adapter: PrismaAdapter({ client: prisma }),
 
   providers: process.env.GOOGLE_CLIENT_ID
@@ -20,6 +20,11 @@ export const nexusAuth = NexusAuth({
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60, // 30 días
+  },
+
+  refreshToken: {
+    enabled: true,
+    expiresIn: '7d',
   },
 
   callbacks: {

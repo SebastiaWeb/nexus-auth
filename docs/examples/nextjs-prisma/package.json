@@ -12,12 +12,13 @@
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
-    "@nexusauth/core": "workspace:*",
-    "@nexusauth/nextjs-helpers": "workspace:*",
-    "@nexusauth/prisma-adapter": "workspace:*",
-    "@nexusauth/providers": "workspace:*",
+    "@nexusauth/core": "^0.1.1",
+    "@nexusauth/nextjs-helpers": "^0.1.1",
+    "@nexusauth/prisma-adapter": "^0.1.1",
+    "@nexusauth/providers": "^0.1.1",
     "@prisma/client": "^5.12.1",
-    "bcrypt": "^5.1.1",
+    "@types/bcryptjs": "^3.0.0",
+    "bcryptjs": "^3.0.2",
     "jsonwebtoken": "^9.0.2",
     "next": "^15.0.2",
     "react": "^19.0.0",
@@ -25,7 +26,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.7",
     "@types/react": "^19.0.0",
